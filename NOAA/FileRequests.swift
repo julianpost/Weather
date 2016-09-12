@@ -11,7 +11,7 @@ import CoreData
 
 class FileRequests {
 
-/*    static func saveRequestedWeather(managedObjectContext: NSManagedObjectContext, startingDateInput: NSDate, endingDateInput: NSDate, dataSetID: String) {
+    static func saveRequestedWeather(managedObjectContext: NSManagedObjectContext, startingDateInput: NSDate, endingDateInput: NSDate, dataSetID: String) {
         
         let precip = OrganizeRequests.precipDictToArray()
         let temperatureMax = OrganizeRequests.temperatureMaxDictToArray()
@@ -88,6 +88,6 @@ class FileRequests {
         
     }
     
-    */
+    
 
 }

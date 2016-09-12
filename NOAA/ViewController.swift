@@ -17,6 +17,14 @@ class ViewController: UIViewController {
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     let today = NSDate()
     
+    
+    @IBAction func dismissView(sender: AnyObject) {
+        
+        // Dismiss View Controller
+        navigationController?.popViewControllerAnimated(true)
+        
+    }
+    
     @IBAction func requestStations() {
         
    print(mainWeatherData.lastYearPrecipDict)              }
@@ -87,6 +95,9 @@ class ViewController: UIViewController {
         CallNOAA.requestWeather(lastYearStartDateString, endDate: lastYearEndDateString , dataSet: "GHCND", dataType: "PRCP") { responseObject in
             // use responseObject and error here
             mainWeatherData.lastYearPrecipDict = responseObject
+            mainWeatherData.lastYearPrecipArray = TransformArray.toSimple(responseObject)
+            print(mainWeatherData.lastYearPrecipArray)
+            
             //print("responseObject = \(responseObject)")
             return
         }
@@ -97,6 +108,9 @@ class ViewController: UIViewController {
         CallNOAA.requestWeather(lastYearStartDateString, endDate: lastYearEndDateString , dataSet: "GHCND", dataType: "TMAX") { responseObject in
             // use responseObject and error here
             mainWeatherData.lastYearTemperatureMaxDict = responseObject
+            mainWeatherData.lastYearTemperatureMaxArray = TransformArray.toSimple(responseObject)
+            //print(mainWeatherData.lastYearTemperatureMaxArray)
+            
             //print("responseObject = \(responseObject)")
             return
         }
@@ -107,12 +121,15 @@ class ViewController: UIViewController {
         CallNOAA.requestWeather(lastYearStartDateString, endDate: lastYearEndDateString , dataSet: "GHCND", dataType: "TMIN") { responseObject in
             // use responseObject and error here
             mainWeatherData.lastYearTemperatureMinDict = responseObject
+            mainWeatherData.lastYearTemperatureMinArray = TransformArray.toSimple(responseObject)
+            //print(mainWeatherData.lastYearTemperatureMinArray)
             //print("responseObject = \(responseObject)")
             return
         }
 
         //print(currentYearTemperatureMin)
         //print("lastYearTemperatureMin \(lastYearTemperatureMin.count)")
+        
         
     }
 
