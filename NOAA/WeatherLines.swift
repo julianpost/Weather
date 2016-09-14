@@ -1,37 +1,22 @@
 //
-//  PrecipView.swift
+//  WeatherLines.swift
 //  NOAA
 //
-//  Created by Julian Post on 8/4/16.
+//  Created by Julian Post on 9/14/16.
 //  Copyright © 2016 Julian Post. All rights reserved.
 //
 
 import UIKit
 
-@IBDesignable class PrecipView: UIView {
+/*
+@IBDesignable class Weatherlines: UIView {
     
     //Weekly sample data
     //var arr:[Float] = mainWeatherData.lastYearTemperatureMaxArray
     
-
     
-    override func drawRect(rect: CGRect) {
+    
         
-       // super.drawRect(rect)
-        
-       // makeArray()
-       // print(arr)
-       // print(mainWeatherData.lastYearTemperatureMaxArray)
-       
-     //   let today = NSDate()
-     //   let formatter = NSDateFormatter()
-     //   formatter.dateFormat = "yyyy-MM-dd"
-     //   let gregorian: NSCalendar! = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-        
-      //  let currentYearStartDate = Date.currentYearStartMath(today)
-      //  let currentYearEndDate = Date.currentYearEndMath(today)
-      //  let lastYearStartDate = Date.lastYearStartMath(today)
-      //  let lastYearEndDate = Date.lastYearEndMath(today)
         
         let layerOne = CAShapeLayer()
         let layerTwo = CAShapeLayer()
@@ -39,22 +24,7 @@ import UIKit
         let width = rect.width
         let height = rect.height
         
-        //set up background clipping area
-   /*     let path = UIBezierPath(roundedRect: rect,
-                                byRoundingCorners: UIRectCorner.AllCorners,
-                                cornerRadii: CGSize(width: 8.0, height: 8.0))
-        path.addClip() */
         
-        //2 - get the current context
-    //    let context = UIGraphicsGetCurrentContext()
-       // let colors = [startColor.CGColor, endColor.CGColor]
-        
-        //3 - set up the color space
-     //   let colorSpace = CGColorSpaceCreateDeviceRGB()
-        
-
- 
- 
         //calculate the x point
         
         let margin:CGFloat = 20.0
@@ -81,16 +51,12 @@ import UIKit
         }
         // draw the line graph
         
-       // UIColor.blackColor().setFill()
-       // UIColor.blackColor().setStroke()
+        // UIColor.blackColor().setFill()
+        // UIColor.blackColor().setStroke()
         
         //set up the points line
         var graphPath = UIBezierPath()
         var graphPathTwo = UIBezierPath()
-        
-        
-        
-        
         
         
         //go to start of line
@@ -117,26 +83,27 @@ import UIKit
             graphPathTwo.addLineToPoint(nextPointTwo)
         }
         
-      //  graphPath.lineWidth = 2.0
-      //  graphPathTwo.lineWidth = 2.0
-      //  graphPath.stroke()
-      //  graphPathTwo.stroke()
+        //  graphPath.lineWidth = 2.0
+        //  graphPathTwo.lineWidth = 2.0
+        //  graphPath.stroke()
+        //  graphPathTwo.stroke()
         
         
         //layerOne.position = CGPoint(x:columnXPoint(0),
-          //                       y:columnYPoint(mainWeatherData.currentYearTemperatureMaxArray[0]))
+        //                       y:columnYPoint(mainWeatherData.currentYearTemperatureMaxArray[0]))
         //layerTwo.position = CGPoint(x:columnXPoint(0),
-          //                       y:columnYPoint(mainWeatherData.currentYearTemperatureMaxArray[0]))
+        //                       y:columnYPoint(mainWeatherData.currentYearTemperatureMaxArray[0]))
+        
         
         layerOne.path = graphPath.CGPath
         layerTwo.path = graphPathTwo.CGPath
-
+        
         layerOne.lineWidth = 2.0
         layerTwo.lineWidth = 2.0
         
         layerOne.strokeColor = UIColor.blackColor().CGColor
         layerTwo.strokeColor = UIColor.blackColor().CGColor
-     
+        
         layerOne.fillColor = nil
         layerTwo.fillColor = nil
         
@@ -144,5 +111,7 @@ import UIKit
         self.layer.addSublayer(layerTwo)
         //self.layer.insertSublayer(layerOne, atIndex: 0)
         //self.layer.insertSublayer(layerTwo, atIndex: 0)
-    }
+    
 }
+ 
+ */

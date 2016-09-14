@@ -60,9 +60,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="0bo-MO-kVs"/>
                                 </constraints>
-                                <state key="normal" title="Last Year"/>
+                                <state key="normal" title="Normal"/>
                                 <connections>
-                                    <action selector="getLastYearDLYs" destination="BYZ-38-t0r" eventType="touchUpInside" id="UCc-He-4Sn"/>
+                                    <action selector="getNormalDLYs" destination="BYZ-38-t0r" eventType="touchUpInside" id="5rv-7T-Vja"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o3D-e1-VaT">
@@ -170,7 +170,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="precipView" destination="f6X-4Y-Cst" id="RUt-EU-Y9p"/>
+                        <outlet property="precipView" destination="f6X-4Y-Cst" id="UbS-22-uAF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGX-2T-rE3" userLabel="First Responder" sceneMemberID="firstResponder"/>

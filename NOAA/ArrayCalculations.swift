@@ -23,7 +23,150 @@ class TransformArray {
         }
         return arr
 
-}
+    }
+    
+    
+    static func toCurrentMonth(dictionary: [NSDate:Float]) -> [Float] {
+    
+        var arr: [Float] = []
+        let today = NSDate()
+        let gregorian: NSCalendar! = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+        
+        var start = Date.currentMonthStartMath(today)
+        let end = Date.currentMonthEndMath(today)
+        
+        while start.compare(end) != NSComparisonResult.OrderedSame {
+            var counter = 0
+            
+            if let value = dictionary[start] {
+                
+                //arr[counter] = value
+                arr.insert(value, atIndex: counter)
+            }
+            
+            // increment the date by 1 day
+            let dateComponents = NSDateComponents()
+            dateComponents.day = 1
+            start = gregorian.dateByAddingComponents(dateComponents, toDate: start, options: NSCalendarOptions(rawValue: 0))!
+            
+            // increment the counter by 1
+            
+            counter += 1
+        }
+
+    
+        return arr
+    }
+    
+    static func toCurrentWeek(dictionary: [NSDate:Float]) -> [Float] {
+        
+        var arr: [Float] = []
+        let today = NSDate()
+        let gregorian: NSCalendar! = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+        
+        var start = Date.currentWeekStartMath(today)
+        let end = Date.currentWeekEndMath(today)
+        
+        print("start\(start)")
+        print("end\(end)")
+        
+        while start.compare(end) != NSComparisonResult.OrderedSame {
+            var counter = 0
+            
+            if let value = dictionary[start] {
+                
+                print("value\(value)")
+                
+                //arr[counter] = value
+                arr.insert(value, atIndex: counter)
+            }
+            
+            // increment the date by 1 day
+            let dateComponents = NSDateComponents()
+            dateComponents.day = 1
+            start = gregorian.dateByAddingComponents(dateComponents, toDate: start, options: NSCalendarOptions(rawValue: 0))!
+            
+            // increment the counter by 1
+            
+            counter += 1
+        }
+        
+        
+        return arr
+    }
+    
+    static func toNormalMonth(dictionary: [NSDate:Float]) -> [Float] {
+        
+        var arr: [Float] = []
+        let today = NSDate()
+        let gregorian: NSCalendar! = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+        
+        var start = Date.normalMonthStartMath(today)
+        let end = Date.normalMonthEndMath(today)
+        
+        print(start)
+        print(end)
+        
+        while start.compare(end) != NSComparisonResult.OrderedSame {
+            var counter = 0
+            
+            if let value = dictionary[start] {
+                
+                //arr[counter] = value
+                arr.insert(value, atIndex: counter)
+            }
+            
+            // increment the date by 1 day
+            let dateComponents = NSDateComponents()
+            dateComponents.day = 1
+            start = gregorian.dateByAddingComponents(dateComponents, toDate: start, options: NSCalendarOptions(rawValue: 0))!
+            
+            // increment the counter by 1
+            
+            counter += 1
+        }
+        
+        
+        return arr
+    }
+    
+    static func toNormalWeek(dictionary: [NSDate:Float]) -> [Float] {
+        
+        var arr: [Float] = []
+        let today = NSDate()
+        let gregorian: NSCalendar! = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+        
+        var start = Date.normalWeekStartMath(today)
+        let end = Date.normalWeekEndMath(today)
+        
+        print("start\(start)")
+        print("end\(end)")
+        
+        while start.compare(end) != NSComparisonResult.OrderedSame {
+            var counter = 0
+            
+            if let value = dictionary[start] {
+                
+                print("value\(value)")
+                
+                //arr[counter] = value
+                arr.insert(value, atIndex: counter)
+            }
+            
+            // increment the date by 1 day
+            let dateComponents = NSDateComponents()
+            dateComponents.day = 1
+            start = gregorian.dateByAddingComponents(dateComponents, toDate: start, options: NSCalendarOptions(rawValue: 0))!
+            
+            // increment the counter by 1
+            
+            counter += 1
+        }
+        
+        
+        return arr
+    }
+
 }
 
    /*

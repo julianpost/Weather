@@ -11,11 +11,15 @@ import Foundation
 
 struct WeatherDataArrays {
 
-var currentYearPrecipArray, currentYearTemperatureMaxArray, currentYearTemperatureMinArray, lastYearPrecipArray, lastYearTemperatureMaxArray,lastYearTemperatureMinArray: [Float]
-
-var currentYearPrecipDict, currentYearTemperatureMaxDict, currentYearTemperatureMinDict, lastYearPrecipDict, lastYearTemperatureMaxDict, lastYearTemperatureMinDict, precipCumulativeLastYear, precipCumulativeThisYear: [NSDate : Float]
+var currentYearPrecipArray, currentYearTemperatureMaxArray, currentYearTemperatureMinArray, normalPrecipArray, normalTemperatureMaxArray,normalTemperatureMinArray: [Float]
     
-init(currentYearPrecipArray: [Float], currentYearTemperatureMaxArray: [Float], currentYearTemperatureMinArray: [Float], lastYearPrecipArray: [Float], lastYearTemperatureMaxArray: [Float],lastYearTemperatureMinArray: [Float], currentYearPrecipDict: [NSDate : Float], currentYearTemperatureMaxDict: [NSDate : Float], currentYearTemperatureMinDict: [NSDate : Float], lastYearPrecipDict: [NSDate : Float], lastYearTemperatureMaxDict: [NSDate : Float], lastYearTemperatureMinDict: [NSDate : Float], precipCumulativeLastYear: [NSDate : Float], precipCumulativeThisYear: [NSDate : Float]) {
+var currentMonthPrecipArray, currentMonthTemperatureMaxArray, currentMonthTemperatureMinArray, normalMonthPrecipArray, normalMonthTemperatureMaxArray,normalMonthTemperatureMinArray: [Float]
+
+var currentWeekPrecipArray, currentWeekTemperatureMaxArray, currentWeekTemperatureMinArray, normalWeekPrecipArray, normalWeekTemperatureMaxArray,normalWeekTemperatureMinArray: [Float]
+    
+var currentYearPrecipDict, currentYearTemperatureMaxDict, currentYearTemperatureMinDict, normalPrecipDict, normalTemperatureMaxDict, normalTemperatureMinDict, precipCumulativeNormal, precipCumulativeThisYear: [NSDate : Float]
+    
+init(currentYearPrecipArray: [Float], currentYearTemperatureMaxArray: [Float], currentYearTemperatureMinArray: [Float], normalPrecipArray: [Float], normalTemperatureMaxArray: [Float],normalTemperatureMinArray: [Float], currentMonthPrecipArray: [Float], currentMonthTemperatureMaxArray: [Float], currentMonthTemperatureMinArray: [Float], normalMonthPrecipArray: [Float], normalMonthTemperatureMaxArray: [Float],normalMonthTemperatureMinArray: [Float], currentWeekPrecipArray: [Float], currentWeekTemperatureMaxArray: [Float], currentWeekTemperatureMinArray: [Float], normalWeekPrecipArray: [Float], normalWeekTemperatureMaxArray: [Float],normalWeekTemperatureMinArray: [Float],currentYearPrecipDict: [NSDate : Float], currentYearTemperatureMaxDict: [NSDate : Float], currentYearTemperatureMinDict: [NSDate : Float], normalPrecipDict: [NSDate : Float], normalTemperatureMaxDict: [NSDate : Float], normalTemperatureMinDict: [NSDate : Float], precipCumulativeNormal: [NSDate : Float], precipCumulativeThisYear: [NSDate : Float]) {
     
     let today = NSDate()
     let gregorian: NSCalendar! = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
@@ -48,21 +52,40 @@ init(currentYearPrecipArray: [Float], currentYearTemperatureMaxArray: [Float], c
         
     } while start != end
     
-    print(blankDict)
+    //print(blankDict)
     
     let sortedDict = blankDict.sort { $0.0.compare($1.0) == .OrderedAscending }
     
     
-    var arr: [Float] = []
+    var arrYear: [Float] = []
     for (_,value) in sortedDict {
         
-        arr.append(value)
+        arrYear.append(value)
         
     }
-//print(arr)
+    
+    var arrMonth: [Float] = []
+    
+    for i in 0...30 {
+    
+    arrMonth.insert(2, atIndex: i)
+    
+    }
+    
+    var arrWeek: [Float] = []
+    
+    for i in 0...6 {
+        
+        arrWeek.insert(2, atIndex: i)
+        
+    }
+    
+   // print("arrYear \(arrYear)")
+   // print("arrMonth \(arrMonth)")
+   // print("arrWeek \(arrWeek)")
     
     var precipCalc:[NSDate : Float] = [:]
-    var startMinusOne = Date.lastYearStartMath(today)
+    var startMinusOne = Date.normalStartMath(today)
    
     
     // changes end date to Jan 1 of the next year so loop will complete all 365 values
@@ -77,7 +100,7 @@ init(currentYearPrecipArray: [Float], currentYearTemperatureMaxArray: [Float], c
     
    /* repeat {
         
-        precipCalc[start] = mainWeatherData.lastYearPrecipDict[start]! + (mainWeatherData.lastYearPrecipDict[startMinusOne] ?? 0.0)
+        precipCalc[start] = mainWeatherData.normalPrecipDict[start]! + (mainWeatherData.normalPrecipDict[startMinusOne] ?? 0.0)
         
         // print("end: \(precipCalc)")
         
@@ -96,18 +119,32 @@ init(currentYearPrecipArray: [Float], currentYearTemperatureMaxArray: [Float], c
     self.currentYearPrecipDict = blankDict
     self.currentYearTemperatureMaxDict = blankDict
     self.currentYearTemperatureMinDict = blankDict
-    self.lastYearPrecipDict = blankDict
-    self.lastYearTemperatureMaxDict = blankDict
-    self.lastYearTemperatureMinDict = blankDict
+    self.normalPrecipDict = blankDict
+    self.normalTemperatureMaxDict = blankDict
+    self.normalTemperatureMinDict = blankDict
     
-    self.currentYearPrecipArray = arr
-    self.currentYearTemperatureMaxArray = arr
-    self.currentYearTemperatureMinArray = arr
-    self.lastYearPrecipArray = arr
-    self.lastYearTemperatureMaxArray = arr
-    self.lastYearTemperatureMinArray = arr
+    self.currentYearPrecipArray = arrYear
+    self.currentYearTemperatureMaxArray = arrYear
+    self.currentYearTemperatureMinArray = arrYear
+    self.normalPrecipArray = arrYear
+    self.normalTemperatureMaxArray = arrYear
+    self.normalTemperatureMinArray = arrYear
     
-    self.precipCumulativeLastYear = precipCalc
+    self.currentMonthPrecipArray = arrMonth
+    self.currentMonthTemperatureMaxArray = arrMonth
+    self.currentMonthTemperatureMinArray = arrMonth
+    self.normalMonthPrecipArray = arrMonth
+    self.normalMonthTemperatureMaxArray = arrMonth
+    self.normalMonthTemperatureMinArray = arrMonth
+    
+    self.currentWeekPrecipArray = arrWeek
+    self.currentWeekTemperatureMaxArray = arrWeek
+    self.currentWeekTemperatureMinArray = arrWeek
+    self.normalWeekPrecipArray = arrWeek
+    self.normalWeekTemperatureMaxArray = arrWeek
+    self.normalWeekTemperatureMinArray = arrWeek
+    
+    self.precipCumulativeNormal = precipCalc
     self.precipCumulativeThisYear = precipCalc
 
     
@@ -117,10 +154,10 @@ init(currentYearPrecipArray: [Float], currentYearTemperatureMaxArray: [Float], c
     
 }
 
-/*var mainWeatherData = WeatherDataArrays(currentYearPrecipArray: arr, currentYearTemperatureMaxArray: arr, currentYearTemperatureMinArray: arr, lastYearPrecipArray: arr, lastYearTemperatureMaxArray: arr, lastYearTemperatureMinArray: arr, currentYearPrecipDict: blankDict, currentYearTemperatureMaxDict: blankDict, currentYearTemperatureMinDict: blankDict, lastYearPrecipDict: blankDict, lastYearTemperatureMaxDict: blankDict, lastYearTemperatureMinDict: blankDict, precipCumulativeLastYear: blankDict, precipCumulativeThisYear: blankDict)
+/*var mainWeatherData = WeatherDataArrays(currentYearPrecipArray: arr, currentYearTemperatureMaxArray: arr, currentYearTemperatureMinArray: arr, normalPrecipArray: arr, normalTemperatureMaxArray: arr, normalTemperatureMinArray: arr, currentYearPrecipDict: blankDict, currentYearTemperatureMaxDict: blankDict, currentYearTemperatureMinDict: blankDict, normalPrecipDict: blankDict, normalTemperatureMaxDict: blankDict, normalTemperatureMinDict: blankDict, precipCumulativenormal: blankDict, precipCumulativeThisYear: blankDict)
 */
 
-var mainWeatherData = WeatherDataArrays(currentYearPrecipArray: [], currentYearTemperatureMaxArray: [], currentYearTemperatureMinArray: [], lastYearPrecipArray: [], lastYearTemperatureMaxArray: [],lastYearTemperatureMinArray: [], currentYearPrecipDict: [:], currentYearTemperatureMaxDict: [:], currentYearTemperatureMinDict: [:], lastYearPrecipDict: [:], lastYearTemperatureMaxDict: [:], lastYearTemperatureMinDict: [:], precipCumulativeLastYear: [:], precipCumulativeThisYear: [:])
+var mainWeatherData = WeatherDataArrays(currentYearPrecipArray: [], currentYearTemperatureMaxArray: [], currentYearTemperatureMinArray: [], normalPrecipArray: [], normalTemperatureMaxArray: [],normalTemperatureMinArray: [], currentMonthPrecipArray: [], currentMonthTemperatureMaxArray: [], currentMonthTemperatureMinArray: [], normalMonthPrecipArray: [], normalMonthTemperatureMaxArray: [],normalMonthTemperatureMinArray: [], currentWeekPrecipArray: [], currentWeekTemperatureMaxArray: [], currentWeekTemperatureMinArray: [], normalWeekPrecipArray: [], normalWeekTemperatureMaxArray: [],normalWeekTemperatureMinArray: [],currentYearPrecipDict: [:], currentYearTemperatureMaxDict: [:], currentYearTemperatureMinDict: [:], normalPrecipDict: [:], normalTemperatureMaxDict: [:], normalTemperatureMinDict: [:], precipCumulativeNormal: [:], precipCumulativeThisYear: [:])
 
 
 /*
@@ -185,7 +222,7 @@ startMinusOne = gregorian.dateByAddingComponents(startMinusOneDateComponents, to
 
 repeat {
     
-    precipCalc[start] = mainWeatherData.lastYearPrecipDict[start]! + (mainWeatherData.lastYearPrecipDict[startMinusOne] ?? 0.0)
+    precipCalc[start] = mainWeatherData.normalPrecipDict[start]! + (mainWeatherData.normalPrecipDict[startMinusOne] ?? 0.0)
     
     // print("end: \(precipCalc)")
     

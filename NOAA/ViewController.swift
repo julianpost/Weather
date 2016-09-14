@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     
     @IBAction func requestStations() {
         
-   print(mainWeatherData.lastYearPrecipDict)              }
+   print(mainWeatherData.normalPrecipDict)              }
     
     @IBAction func getCurrentYearDLYs() {
         
@@ -47,7 +47,13 @@ class ViewController: UIViewController {
         CallNOAA.requestWeather(currentYearStartDateString, endDate: currentYearEndDateString , dataSet: "GHCND", dataType: "PRCP") { responseObject in
             // use responseObject and error here
             mainWeatherData.currentYearPrecipDict = responseObject
-            //print("responseObject = \(responseObject)")
+            mainWeatherData.currentYearPrecipArray = TransformArray.toSimple(responseObject)
+            mainWeatherData.currentMonthPrecipArray = TransformArray.toCurrentMonth(responseObject)
+            mainWeatherData.currentWeekPrecipArray = TransformArray.toCurrentWeek(responseObject)
+            print(mainWeatherData.currentYearPrecipArray)
+            print(mainWeatherData.currentMonthPrecipArray)
+            print(mainWeatherData.currentWeekPrecipArray)
+            print("responseObject = \(responseObject)")
             return
         }
 
@@ -57,6 +63,9 @@ class ViewController: UIViewController {
         CallNOAA.requestWeather(currentYearStartDateString, endDate: currentYearEndDateString , dataSet: "GHCND", dataType: "TMAX") { responseObject in
             // use responseObject and error here
             mainWeatherData.currentYearTemperatureMaxDict = responseObject
+            mainWeatherData.currentYearTemperatureMaxArray = TransformArray.toSimple(responseObject)
+            //print(mainWeatherData.normalPrecipArray)
+            
             //print("responseObject = \(responseObject)")
             return
     }
@@ -67,6 +76,9 @@ class ViewController: UIViewController {
         CallNOAA.requestWeather(currentYearStartDateString, endDate: currentYearEndDateString , dataSet: "GHCND", dataType: "TMIN") { responseObject in
             // use responseObject and error here
             mainWeatherData.currentYearTemperatureMinDict = responseObject
+            mainWeatherData.currentYearTemperatureMinArray = TransformArray.toSimple(responseObject)
+            //print(mainWeatherData.normalPrecipArray)
+            
             //print("responseObject = \(responseObject)")
             return
         }
@@ -76,7 +88,7 @@ class ViewController: UIViewController {
      
             }
     
-    @IBAction func getLastYearDLYs() {
+    @IBAction func getNormalDLYs() {
         
         let today = NSDate()
         let formatter = NSDateFormatter()
@@ -85,50 +97,69 @@ class ViewController: UIViewController {
         let lastYearStartDate = Date.lastYearStartMath(today)
         let lastYearEndDate = Date.lastYearEndMath(today)
         
+        let normalStartDate = Date.normalStartMath(today)
+        let normalEndDate = Date.normalEndMath(today)
+        
         let lastYearStartDateString = formatter.stringFromDate(lastYearStartDate)
         let lastYearEndDateString = formatter.stringFromDate(lastYearEndDate)
         
-        print("lastYearStartDateString \(lastYearStartDateString)")
-        print("lastYearEndDateString \(lastYearEndDateString)")
+        let normalStartDateString = formatter.stringFromDate(normalStartDate)
+        let normalEndDateString = formatter.stringFromDate(normalEndDate)
+
+      //  print("lastYearStartDateString \(lastYearStartDateString)")
+      //  print("lastYearEndDateString \(lastYearEndDateString)")
+        
+      //  print("normalStartDateString \(normalStartDateString)")
+      //  print("normalEndDateString \(normalEndDateString)")
         
         
-        CallNOAA.requestWeather(lastYearStartDateString, endDate: lastYearEndDateString , dataSet: "GHCND", dataType: "PRCP") { responseObject in
+        CallNOAA.requestWeather(normalStartDateString, endDate: normalEndDateString , dataSet: "NORMAL_DLY", dataType: "DLY-PRCP-NORMAL") { responseObject in
             // use responseObject and error here
-            mainWeatherData.lastYearPrecipDict = responseObject
-            mainWeatherData.lastYearPrecipArray = TransformArray.toSimple(responseObject)
-            print(mainWeatherData.lastYearPrecipArray)
+            mainWeatherData.normalPrecipDict = responseObject
+            mainWeatherData.normalPrecipArray = TransformArray.toSimple(responseObject)
+            mainWeatherData.normalMonthPrecipArray = TransformArray.toNormalMonth(responseObject)
+            mainWeatherData.normalWeekPrecipArray = TransformArray.toNormalWeek(responseObject)
+            print(mainWeatherData.normalPrecipArray)
+            print(mainWeatherData.normalMonthPrecipArray)
+            print(mainWeatherData.normalWeekPrecipArray)
+            //print(mainWeatherData.normalPrecipArray)
             
             //print("responseObject = \(responseObject)")
             return
         }
 
-        //print(lastYearPrecip)
-        //print("lastYearPrecip \(lastYearPrecip.count)")
+        //print(normalPrecip)
+        //print("normalPrecip \(normalPrecip.count)")
         
-        CallNOAA.requestWeather(lastYearStartDateString, endDate: lastYearEndDateString , dataSet: "GHCND", dataType: "TMAX") { responseObject in
+        CallNOAA.requestWeather(normalStartDateString, endDate: normalEndDateString , dataSet: "NORMAL_DLY", dataType: "DLY-TMAX-NORMAL") { responseObject in
             // use responseObject and error here
-            mainWeatherData.lastYearTemperatureMaxDict = responseObject
-            mainWeatherData.lastYearTemperatureMaxArray = TransformArray.toSimple(responseObject)
-            //print(mainWeatherData.lastYearTemperatureMaxArray)
+            mainWeatherData.normalTemperatureMaxDict = responseObject
+            mainWeatherData.normalTemperatureMaxArray = TransformArray.toSimple(responseObject)
+            mainWeatherData.normalMonthTemperatureMaxArray = TransformArray.toNormalMonth(responseObject)
+            mainWeatherData.normalWeekTemperatureMaxArray = TransformArray.toNormalWeek(responseObject)
+            print(mainWeatherData.normalTemperatureMaxArray)
+            print(mainWeatherData.normalMonthTemperatureMaxArray)
+            print(mainWeatherData.normalWeekTemperatureMaxArray)
+            //print(mainWeatherData.normalTemperatureMaxArray)
             
             //print("responseObject = \(responseObject)")
             return
         }
 
         //print(currentYearTemperatureMax)
-        //print("lastYearTemperatureMax \(lastYearTemperatureMax.count)")
+        //print("normalTemperatureMax \(normalTemperatureMax.count)")
         
-        CallNOAA.requestWeather(lastYearStartDateString, endDate: lastYearEndDateString , dataSet: "GHCND", dataType: "TMIN") { responseObject in
+        CallNOAA.requestWeather(normalStartDateString, endDate: normalEndDateString , dataSet: "NORMAL_DLY", dataType: "DLY-TMIN-NORMAL") { responseObject in
             // use responseObject and error here
-            mainWeatherData.lastYearTemperatureMinDict = responseObject
-            mainWeatherData.lastYearTemperatureMinArray = TransformArray.toSimple(responseObject)
-            //print(mainWeatherData.lastYearTemperatureMinArray)
+            mainWeatherData.normalTemperatureMinDict = responseObject
+            mainWeatherData.normalTemperatureMinArray = TransformArray.toSimple(responseObject)
+            //print(mainWeatherData.normalTemperatureMinArray)
             //print("responseObject = \(responseObject)")
             return
         }
 
         //print(currentYearTemperatureMin)
-        //print("lastYearTemperatureMin \(lastYearTemperatureMin.count)")
+        //print("normalTemperatureMin \(normalTemperatureMin.count)")
         
         
     }
@@ -141,12 +172,12 @@ class ViewController: UIViewController {
         print(mainWeatherData.currentYearTemperatureMaxDict.count)
         //print(currentYearTemperatureMinDict)
         print(mainWeatherData.currentYearTemperatureMinDict.count)
-        //print(lastYearPrecipDict)
-        print(mainWeatherData.lastYearPrecipDict.count)
-        //print(lastYearTemperatureMaxDict)
-        print(mainWeatherData.lastYearTemperatureMaxDict.count)
-        //print(lastYearTemperatureMinDict)
-        print(mainWeatherData.lastYearTemperatureMinDict.count)
+        //print(normalPrecipDict)
+        print(mainWeatherData.normalPrecipDict.count)
+        //print(normalTemperatureMaxDict)
+        print(mainWeatherData.normalTemperatureMaxDict.count)
+        //print(normalTemperatureMinDict)
+        print(mainWeatherData.normalTemperatureMinDict.count)
     
     }
   
