@@ -14,9 +14,21 @@ import SwiftyJSON
 
 class ViewController: UIViewController {
     
-    var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    //var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     let today = NSDate()
     
+    @IBOutlet weak var tempView: UIView!
+    
+    @IBAction func checkDegs(sender: AnyObject) {
+        print(mainWeatherData.degreeDayCumulativeNormal)
+    }
+    
+    @IBAction func setNeedsDisplay(sender: AnyObject) {
+        
+        // precipView.setNeedsDisplay()
+        // print("button was pressed \(mainWeatherData.lastYearPrecipDict)")
+        PrecipView.drawChart(tempView, current: mainWeatherData.degreeDayCumulativeThisYear, normal: mainWeatherData.degreeDayCumulativeNormal)
+    }
     
     @IBAction func dismissView(sender: AnyObject) {
         
@@ -25,7 +37,26 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func requestStations() {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        FetchAllData.temp()
+        
+    
+        PrecipView.drawChart(self.tempView, current: mainWeatherData.currentYearTemperatureMaxArray, normal: mainWeatherData.normalTemperatureMaxArray)
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    
+/*    @IBAction func requestStations() {
         
    print(mainWeatherData.normalPrecipDict)              }
     
@@ -185,13 +216,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+*/
 
 }
 

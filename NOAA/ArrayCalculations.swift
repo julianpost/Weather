@@ -67,15 +67,15 @@ class TransformArray {
         var start = Date.currentWeekStartMath(today)
         let end = Date.currentWeekEndMath(today)
         
-        print("start\(start)")
-        print("end\(end)")
+        //print("start\(start)")
+        //print("end\(end)")
         
         while start.compare(end) != NSComparisonResult.OrderedSame {
             var counter = 0
             
             if let value = dictionary[start] {
                 
-                print("value\(value)")
+                //print("value\(value)")
                 
                 //arr[counter] = value
                 arr.insert(value, atIndex: counter)
@@ -104,8 +104,8 @@ class TransformArray {
         var start = Date.normalMonthStartMath(today)
         let end = Date.normalMonthEndMath(today)
         
-        print(start)
-        print(end)
+        //print(start)
+        //print(end)
         
         while start.compare(end) != NSComparisonResult.OrderedSame {
             var counter = 0
@@ -139,15 +139,15 @@ class TransformArray {
         var start = Date.normalWeekStartMath(today)
         let end = Date.normalWeekEndMath(today)
         
-        print("start\(start)")
-        print("end\(end)")
+        //print("start\(start)")
+        //print("end\(end)")
         
         while start.compare(end) != NSComparisonResult.OrderedSame {
             var counter = 0
             
             if let value = dictionary[start] {
                 
-                print("value\(value)")
+                //print("value\(value)")
                 
                 //arr[counter] = value
                 arr.insert(value, atIndex: counter)
@@ -166,8 +166,59 @@ class TransformArray {
         
         return arr
     }
+    
+    static func toDegreeDay(baseTemp: Float, maxTemp: Float, tMin: [Float], tMax: [Float]) -> [Float] {
+        
+        var degreeDay: [Float] = []
+        
+            for i in 0...tMin.count-1 {
+        
+                if tMin[i] < baseTemp && tMax[i] > maxTemp {
+            degreeDay.append((baseTemp + maxTemp)/2 - baseTemp)
+                }
+            
+                else if tMin[i] < baseTemp {
+            degreeDay.append((baseTemp + tMax[i])/2 - baseTemp)
+                }
+            
+                else if tMax[i] > maxTemp {
+            degreeDay.append((tMin[i] + maxTemp)/2 - baseTemp)
+                }
+            
+                else {
+            degreeDay.append((tMin[i] + tMax[i])/2 - baseTemp)
+                }
+            
+        }
+        
+        for i in 0...degreeDay.count-1 {
+            if degreeDay[i] < 0 {
+                degreeDay[i] = 0
+            }
+        }
+        
+        return degreeDay
+        
+    }
+    
+    static func toCumulative(array: [Float]) -> [Float] {
+        
+        var newArray: [Float] = [array[0]]
+    
+        for i in 1...array.count-1 {
+            
+            newArray.append(newArray[i-1] + array[i])
+        
+        }
+        return newArray
+    }
 
 }
+
+
+
+
+
 
    /*
         

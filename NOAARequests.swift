@@ -47,12 +47,16 @@ class CallNOAA {
             
         ]
         
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+           
+        
         Alamofire.request(.GET,"https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=\(dataSet)&stationid=GHCND:USW00014742&units=standard", parameters: parameters, headers: headers)
             .validate(statusCode: 200..<300).responseJSON { (responseData) -> Void in
                 //debugPrint(responseData)
                 switch responseData.result {
-                case .Success/*(let completionValue)*/:
-                    print("Validation Successful")
+                case .Success:
+                    print("Validation Successful \(startDate)")
                     let swiftyJsonVar = JSON(responseData.result.value!)
                     //  print(swiftyJsonVar)
                     
@@ -85,7 +89,9 @@ class CallNOAA {
                 
         }
 
-    
+            dispatch_async(dispatch_get_main_queue()) {
+            }
+        }
     }
 
 /* static func requestTemperatureMax(startDate: String, endDate: String, dataSet: String, dataType: String, array: [[String:AnyObject]], dict: [NSDate : Float]) -> [NSDate : Float] {

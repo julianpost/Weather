@@ -15,11 +15,18 @@ var currentYearPrecipArray, currentYearTemperatureMaxArray, currentYearTemperatu
     
 var currentMonthPrecipArray, currentMonthTemperatureMaxArray, currentMonthTemperatureMinArray, normalMonthPrecipArray, normalMonthTemperatureMaxArray,normalMonthTemperatureMinArray: [Float]
 
-var currentWeekPrecipArray, currentWeekTemperatureMaxArray, currentWeekTemperatureMinArray, normalWeekPrecipArray, normalWeekTemperatureMaxArray,normalWeekTemperatureMinArray: [Float]
+var currentWeekPrecipArray, currentWeekTemperatureMaxArray, currentWeekTemperatureMinArray, normalWeekPrecipArray, normalWeekTemperatureMaxArray,normalWeekTemperatureMinArray, precipCumulativeNormal, precipCumulativeThisYear, degreeDayCumulativeNormal, degreeDayCumulativeThisYear: [Float]
     
-var currentYearPrecipDict, currentYearTemperatureMaxDict, currentYearTemperatureMinDict, normalPrecipDict, normalTemperatureMaxDict, normalTemperatureMinDict, precipCumulativeNormal, precipCumulativeThisYear: [NSDate : Float]
+var currentYearPrecipDict, currentYearTemperatureMaxDict, currentYearTemperatureMinDict, normalPrecipDict, normalTemperatureMaxDict, normalTemperatureMinDict: [NSDate : Float]
     
-init(currentYearPrecipArray: [Float], currentYearTemperatureMaxArray: [Float], currentYearTemperatureMinArray: [Float], normalPrecipArray: [Float], normalTemperatureMaxArray: [Float],normalTemperatureMinArray: [Float], currentMonthPrecipArray: [Float], currentMonthTemperatureMaxArray: [Float], currentMonthTemperatureMinArray: [Float], normalMonthPrecipArray: [Float], normalMonthTemperatureMaxArray: [Float],normalMonthTemperatureMinArray: [Float], currentWeekPrecipArray: [Float], currentWeekTemperatureMaxArray: [Float], currentWeekTemperatureMinArray: [Float], normalWeekPrecipArray: [Float], normalWeekTemperatureMaxArray: [Float],normalWeekTemperatureMinArray: [Float],currentYearPrecipDict: [NSDate : Float], currentYearTemperatureMaxDict: [NSDate : Float], currentYearTemperatureMinDict: [NSDate : Float], normalPrecipDict: [NSDate : Float], normalTemperatureMaxDict: [NSDate : Float], normalTemperatureMinDict: [NSDate : Float], precipCumulativeNormal: [NSDate : Float], precipCumulativeThisYear: [NSDate : Float]) {
+var currentPrecipLoaded = false
+var normalPrecipLoaded = false
+var currentTMAXLoaded = false
+var normalTMAXLoaded = false
+var currentTMINLoaded = false
+var normalTMINLoaded = false
+    
+    init(currentYearPrecipArray: [Float], currentYearTemperatureMaxArray: [Float], currentYearTemperatureMinArray: [Float], normalPrecipArray: [Float], normalTemperatureMaxArray: [Float],normalTemperatureMinArray: [Float], currentMonthPrecipArray: [Float], currentMonthTemperatureMaxArray: [Float], currentMonthTemperatureMinArray: [Float], normalMonthPrecipArray: [Float], normalMonthTemperatureMaxArray: [Float],normalMonthTemperatureMinArray: [Float], currentWeekPrecipArray: [Float], currentWeekTemperatureMaxArray: [Float], currentWeekTemperatureMinArray: [Float], normalWeekPrecipArray: [Float], normalWeekTemperatureMaxArray: [Float],normalWeekTemperatureMinArray: [Float],currentYearPrecipDict: [NSDate : Float], currentYearTemperatureMaxDict: [NSDate : Float], currentYearTemperatureMinDict: [NSDate : Float], normalPrecipDict: [NSDate : Float], normalTemperatureMaxDict: [NSDate : Float], normalTemperatureMinDict: [NSDate : Float], precipCumulativeNormal: [Float], precipCumulativeThisYear: [Float], degreeDayCumulativeNormal: [Float], degreeDayCumulativeThisYear: [Float], currentPrecipLoaded: Bool, normalPrecipLoaded: Bool, currentTMAXLoaded: Bool, normalTMAXLoaded: Bool, currentTMINLoaded: Bool, normalTMINLoaded: Bool) {
     
     let today = NSDate()
     let gregorian: NSCalendar! = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
@@ -144,10 +151,17 @@ init(currentYearPrecipArray: [Float], currentYearTemperatureMaxArray: [Float], c
     self.normalWeekTemperatureMaxArray = arrWeek
     self.normalWeekTemperatureMinArray = arrWeek
     
-    self.precipCumulativeNormal = precipCalc
-    self.precipCumulativeThisYear = precipCalc
-
-    
+    self.precipCumulativeNormal = arrYear
+    self.precipCumulativeThisYear = arrYear
+    self.degreeDayCumulativeNormal = arrYear
+    self.degreeDayCumulativeThisYear = arrYear
+        
+    self.currentPrecipLoaded = false
+    self.normalPrecipLoaded = false
+    self.currentTMAXLoaded = false
+    self.normalTMAXLoaded = false
+    self.currentTMINLoaded = false
+    self.normalTMINLoaded = false
 
     }
     
@@ -157,7 +171,7 @@ init(currentYearPrecipArray: [Float], currentYearTemperatureMaxArray: [Float], c
 /*var mainWeatherData = WeatherDataArrays(currentYearPrecipArray: arr, currentYearTemperatureMaxArray: arr, currentYearTemperatureMinArray: arr, normalPrecipArray: arr, normalTemperatureMaxArray: arr, normalTemperatureMinArray: arr, currentYearPrecipDict: blankDict, currentYearTemperatureMaxDict: blankDict, currentYearTemperatureMinDict: blankDict, normalPrecipDict: blankDict, normalTemperatureMaxDict: blankDict, normalTemperatureMinDict: blankDict, precipCumulativenormal: blankDict, precipCumulativeThisYear: blankDict)
 */
 
-var mainWeatherData = WeatherDataArrays(currentYearPrecipArray: [], currentYearTemperatureMaxArray: [], currentYearTemperatureMinArray: [], normalPrecipArray: [], normalTemperatureMaxArray: [],normalTemperatureMinArray: [], currentMonthPrecipArray: [], currentMonthTemperatureMaxArray: [], currentMonthTemperatureMinArray: [], normalMonthPrecipArray: [], normalMonthTemperatureMaxArray: [],normalMonthTemperatureMinArray: [], currentWeekPrecipArray: [], currentWeekTemperatureMaxArray: [], currentWeekTemperatureMinArray: [], normalWeekPrecipArray: [], normalWeekTemperatureMaxArray: [],normalWeekTemperatureMinArray: [],currentYearPrecipDict: [:], currentYearTemperatureMaxDict: [:], currentYearTemperatureMinDict: [:], normalPrecipDict: [:], normalTemperatureMaxDict: [:], normalTemperatureMinDict: [:], precipCumulativeNormal: [:], precipCumulativeThisYear: [:])
+var mainWeatherData = WeatherDataArrays(currentYearPrecipArray: [], currentYearTemperatureMaxArray: [], currentYearTemperatureMinArray: [], normalPrecipArray: [], normalTemperatureMaxArray: [],normalTemperatureMinArray: [], currentMonthPrecipArray: [], currentMonthTemperatureMaxArray: [], currentMonthTemperatureMinArray: [], normalMonthPrecipArray: [], normalMonthTemperatureMaxArray: [],normalMonthTemperatureMinArray: [], currentWeekPrecipArray: [], currentWeekTemperatureMaxArray: [], currentWeekTemperatureMinArray: [], normalWeekPrecipArray: [], normalWeekTemperatureMaxArray: [],normalWeekTemperatureMinArray: [],currentYearPrecipDict: [:], currentYearTemperatureMaxDict: [:], currentYearTemperatureMinDict: [:], normalPrecipDict: [:], normalTemperatureMaxDict: [:], normalTemperatureMinDict: [:], precipCumulativeNormal: [], precipCumulativeThisYear: [], degreeDayCumulativeNormal: [], degreeDayCumulativeThisYear: [], currentPrecipLoaded: false, normalPrecipLoaded: false, currentTMAXLoaded: false, normalTMAXLoaded: false, currentTMINLoaded: false, normalTMINLoaded: false)
 
 
 /*

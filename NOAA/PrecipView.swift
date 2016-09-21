@@ -8,14 +8,14 @@
 
 import UIKit
 
-@IBDesignable class PrecipView: UIView {
+class PrecipView {
     
     //Weekly sample data
     //var arr:[Float] = mainWeatherData.lastYearTemperatureMaxArray
     
 
     
-    override func drawRect(rect: CGRect) {
+    static func drawChart(view: UIView, current: [Float], normal: [Float]) {
         
        // super.drawRect(rect)
         
@@ -36,8 +36,8 @@ import UIKit
         let layerOne = CAShapeLayer()
         let layerTwo = CAShapeLayer()
         
-        let width = rect.width
-        let height = rect.height
+        let width = view.frame.width
+        let height = view.frame.height
         
         //set up background clipping area
    /*     let path = UIBezierPath(roundedRect: rect,
@@ -61,7 +61,7 @@ import UIKit
         var columnXPoint = { (column:Int) -> CGFloat in
             //Calculate gap between points
             let spacer = (width - margin*2 - 4) /
-                CGFloat((mainWeatherData.normalTemperatureMaxArray.count - 1))
+                CGFloat((normal.count - 1))
             var x:CGFloat = CGFloat(column) * spacer
             x += margin + 2
             return x
@@ -72,7 +72,7 @@ import UIKit
         let topBorder:CGFloat = 60
         let bottomBorder:CGFloat = 50
         let graphHeight = height - topBorder - bottomBorder
-        let maxValue = mainWeatherData.normalTemperatureMaxArray.maxElement()!
+        let maxValue = normal.maxElement()!
         var columnYPoint = { (graphPoint:Float) -> CGFloat in
             var y:CGFloat = CGFloat(graphPoint) /
                 CGFloat(maxValue) * graphHeight
@@ -95,24 +95,24 @@ import UIKit
         
         //go to start of line
         graphPath.moveToPoint(CGPoint(x:columnXPoint(0),
-            y:columnYPoint(mainWeatherData.currentYearTemperatureMaxArray[0])))
+            y:columnYPoint(current[0])))
         
         graphPathTwo.moveToPoint(CGPoint(x:columnXPoint(0),
-            y:columnYPoint(mainWeatherData.normalTemperatureMaxArray[0])))
+            y:columnYPoint(normal[0])))
         
         //add points for each item in the arr array
         //at the correct (x, y) for the point
-        for i in 1..<mainWeatherData.currentYearTemperatureMaxArray.count {
+        for i in 1..<current.count {
             let nextPoint = CGPoint(x:columnXPoint(i),
-                                    y:columnYPoint(mainWeatherData.currentYearTemperatureMaxArray[i]))
+                                    y:columnYPoint(current[i]))
             
             graphPath.addLineToPoint(nextPoint)
         }
         
-        for i in 1..<mainWeatherData.normalTemperatureMaxArray.count {
+        for i in 1..<normal.count {
             
             let nextPointTwo = CGPoint(x:columnXPoint(i),
-                                       y:columnYPoint(mainWeatherData.normalTemperatureMaxArray[i]))
+                                       y:columnYPoint(normal[i]))
             
             graphPathTwo.addLineToPoint(nextPointTwo)
         }
@@ -140,8 +140,8 @@ import UIKit
         layerOne.fillColor = nil
         layerTwo.fillColor = nil
         
-        self.layer.addSublayer(layerOne)
-        self.layer.addSublayer(layerTwo)
+        view.layer.addSublayer(layerOne)
+        view.layer.addSublayer(layerTwo)
         //self.layer.insertSublayer(layerOne, atIndex: 0)
         //self.layer.insertSublayer(layerTwo, atIndex: 0)
     }

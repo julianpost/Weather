@@ -15,14 +15,14 @@
 		E81D853B1D56546600187B94 /* PrecipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81D853A1D56546600187B94 /* PrecipViewController.swift */; };
 		E8541EDB1D4D613D00A4CC93 /* WeatherDataArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8541EDA1D4D613D00A4CC93 /* WeatherDataArrays.swift */; };
 		E868D2031D45045D0093E4C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E868D2021D45045D0093E4C0 /* AppDelegate.swift */; };
-		E868D2051D45045D0093E4C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E868D2041D45045D0093E4C0 /* ViewController.swift */; };
+		E868D2051D45045D0093E4C0 /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E868D2041D45045D0093E4C0 /* TempViewController.swift */; };
 		E868D2081D45045D0093E4C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E868D2061D45045D0093E4C0 /* Main.storyboard */; };
 		E868D20B1D45045D0093E4C0 /* NOAA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E868D2091D45045D0093E4C0 /* NOAA.xcdatamodeld */; };
 		E868D20D1D45045D0093E4C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E868D20C1D45045D0093E4C0 /* Assets.xcassets */; };
 		E868D2101D45045D0093E4C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E868D20E1D45045D0093E4C0 /* LaunchScreen.storyboard */; };
 		E868D22F1D4504C20093E4C0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E868D2221D4504A00093E4C0 /* Alamofire.framework */; };
 		E868D2301D4504C20093E4C0 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E868D2221D4504A00093E4C0 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E895960C1D89E210001F7DA6 /* WeatherLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = E895960B1D89E210001F7DA6 /* WeatherLines.swift */; };
+		E895960C1D89E210001F7DA6 /* FetchAllData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E895960B1D89E210001F7DA6 /* FetchAllData.swift */; };
 		E8D80AB51D46DF9600C18ACD /* NOAARequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D80AB41D46DF9600C18ACD /* NOAARequests.swift */; };
 		E8DE9C431D45921B0040962D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8DE9C361D45920B0040962D /* SwiftyJSON.framework */; };
 		E8DE9C441D45921B0040962D /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8DE9C361D45920B0040962D /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -168,14 +168,14 @@
 		E8541EDA1D4D613D00A4CC93 /* WeatherDataArrays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDataArrays.swift; sourceTree = "<group>"; };
 		E868D1FF1D45045D0093E4C0 /* NOAA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NOAA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E868D2021D45045D0093E4C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E868D2041D45045D0093E4C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E868D2041D45045D0093E4C0 /* TempViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
 		E868D2071D45045D0093E4C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E868D20A1D45045D0093E4C0 /* NOAA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NOAA.xcdatamodel; sourceTree = "<group>"; };
 		E868D20C1D45045D0093E4C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E868D20F1D45045D0093E4C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E868D2111D45045D0093E4C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E868D2171D4504A00093E4C0 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
-		E895960B1D89E210001F7DA6 /* WeatherLines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherLines.swift; sourceTree = "<group>"; };
+		E895960B1D89E210001F7DA6 /* FetchAllData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchAllData.swift; sourceTree = "<group>"; };
 		E8D80AB41D46DF9600C18ACD /* NOAARequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NOAARequests.swift; sourceTree = SOURCE_ROOT; };
 		E8DE9C251D45920B0040962D /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = "SwiftyJSON-master/SwiftyJSON.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -217,11 +217,11 @@
 			isa = PBXGroup;
 			children = (
 				E868D2021D45045D0093E4C0 /* AppDelegate.swift */,
-				E868D2041D45045D0093E4C0 /* ViewController.swift */,
-				E895960B1D89E210001F7DA6 /* WeatherLines.swift */,
+				E81D853A1D56546600187B94 /* PrecipViewController.swift */,
+				E868D2041D45045D0093E4C0 /* TempViewController.swift */,
+				E895960B1D89E210001F7DA6 /* FetchAllData.swift */,
 				E816D4A11D5409C0005DA4D9 /* PrecipView.swift */,
 				E805D8F31D735BEF00E58FCA /* ArrayCalculations.swift */,
-				E81D853A1D56546600187B94 /* PrecipViewController.swift */,
 				E8D80AB41D46DF9600C18ACD /* NOAARequests.swift */,
 				E8541EDA1D4D613D00A4CC93 /* WeatherDataArrays.swift */,
 				E800E9C71D48290900F3F8EC /* DateHandler.swift */,
@@ -450,12 +450,12 @@
 				E8D80AB51D46DF9600C18ACD /* NOAARequests.swift in Sources */,
 				E868D20B1D45045D0093E4C0 /* NOAA.xcdatamodeld in Sources */,
 				E800E9C81D48290900F3F8EC /* DateHandler.swift in Sources */,
-				E868D2051D45045D0093E4C0 /* ViewController.swift in Sources */,
+				E868D2051D45045D0093E4C0 /* TempViewController.swift in Sources */,
 				E805D8F41D735BEF00E58FCA /* ArrayCalculations.swift in Sources */,
 				E800E9DA1D48388300F3F8EC /* Weather.swift in Sources */,
 				E81D853B1D56546600187B94 /* PrecipViewController.swift in Sources */,
 				E800E9D91D48388300F3F8EC /* Weather+CoreDataProperties.swift in Sources */,
-				E895960C1D89E210001F7DA6 /* WeatherLines.swift in Sources */,
+				E895960C1D89E210001F7DA6 /* FetchAllData.swift in Sources */,
 				E816D4A21D5409C0005DA4D9 /* PrecipView.swift in Sources */,
 				E868D2031D45045D0093E4C0 /* AppDelegate.swift in Sources */,
 				E8541EDB1D4D613D00A4CC93 /* WeatherDataArrays.swift in Sources */,
