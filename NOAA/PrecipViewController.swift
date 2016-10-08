@@ -14,9 +14,9 @@ class PrecipViewController: UIViewController {
     
     @IBAction func setNeedsDisplay(sender: AnyObject) {
         
-       // precipView.setNeedsDisplay()
+       //precipView.setNeedsDisplay()
        // print("button was pressed \(mainWeatherData.lastYearPrecipDict)")
-        PrecipView.drawChart(precipView, current: mainWeatherData.currentYearPrecipArray, normal: mainWeatherData.normalPrecipArray)
+        // PrecipView.drawChart(precipView, current: mainWeatherData.currentYearPrecipArray, normal: mainWeatherData.normalPrecipArray)
     }
     
     @IBOutlet weak var precipView: UIView!
@@ -28,9 +28,9 @@ class PrecipViewController: UIViewController {
         
     //    precipView.setNeedsDisplay()
         
-        FetchAllData.precip()
+        FetchAllData.precip(precipView)
         
-        PrecipView.drawChart(self.precipView, current: mainWeatherData.currentMonthPrecipArray, normal: mainWeatherData.normalMonthPrecipArray)
+        //UpdateView.drawChart(self.precipView, current: mainWeatherData.currentMonthPrecipArray, normal: mainWeatherData.normalMonthPrecipArray)
         
     }
     

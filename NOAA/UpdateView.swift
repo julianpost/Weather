@@ -1,5 +1,5 @@
 //
-//  PrecipView.swift
+//  UpdateView.swift
 //  NOAA
 //
 //  Created by Julian Post on 8/4/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PrecipView {
+class UpdateView {
     
     //Weekly sample data
     //var arr:[Float] = mainWeatherData.lastYearTemperatureMaxArray
@@ -144,5 +144,25 @@ class PrecipView {
         view.layer.addSublayer(layerTwo)
         //self.layer.insertSublayer(layerOne, atIndex: 0)
         //self.layer.insertSublayer(layerTwo, atIndex: 0)
+    }
+    
+    static func handlePrecipCompletion(view: UIView) {
+        if mainWeatherData.currentPrecipLoaded && mainWeatherData.normalPrecipLoaded {
+            
+            UpdateView.drawChart(view, current: mainWeatherData.currentMonthPrecipArray, normal: mainWeatherData.normalMonthPrecipArray)
+        }
+    }
+    
+    static func handleTempCompletion(view: UIView) {
+        if mainWeatherData.currentTMAXLoaded && mainWeatherData.normalTMAXLoaded && mainWeatherData.currentTMINLoaded && mainWeatherData.normalTMINLoaded {
+            
+          //  mainWeatherData.degreeDayCumulativeThisYear = TransformArray.toDegreeDay(52, maxTemp: 86, tMin: mainWeatherData.currentYearTemperatureMinArray, tMax: mainWeatherData.currentYearTemperatureMaxArray)
+         //   mainWeatherData.degreeDayCumulativeThisYear = TransformArray.toCumulative(mainWeatherData.degreeDayCumulativeThisYear)
+            
+         //   mainWeatherData.degreeDayCumulativeNormal = TransformArray.toDegreeDay(52, maxTemp: 86, tMin: mainWeatherData.normalTemperatureMinArray, tMax: mainWeatherData.normalTemperatureMaxArray)
+         //   mainWeatherData.degreeDayCumulativeNormal = TransformArray.toCumulative(mainWeatherData.degreeDayCumulativeThisYear)
+            
+            UpdateView.drawChart(view, current: mainWeatherData.currentYearTemperatureMinArray, normal: mainWeatherData.currentYearTemperatureMaxArray)
+        }
     }
 }

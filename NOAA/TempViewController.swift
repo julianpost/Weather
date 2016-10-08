@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         
         // precipView.setNeedsDisplay()
         // print("button was pressed \(mainWeatherData.lastYearPrecipDict)")
-        PrecipView.drawChart(tempView, current: mainWeatherData.degreeDayCumulativeThisYear, normal: mainWeatherData.degreeDayCumulativeNormal)
+        UpdateView.drawChart(tempView, current: mainWeatherData.degreeDayCumulativeThisYear, normal: mainWeatherData.degreeDayCumulativeNormal)
     }
     
     @IBAction func dismissView(sender: AnyObject) {
@@ -42,10 +42,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        FetchAllData.temp()
+        FetchAllData.temp(tempView)
         
     
-        PrecipView.drawChart(self.tempView, current: mainWeatherData.currentYearTemperatureMaxArray, normal: mainWeatherData.normalTemperatureMaxArray)
+        //PrecipView.drawChart(self.tempView, current: mainWeatherData.currentYearTemperatureMaxArray, normal: mainWeatherData.normalTemperatureMaxArray)
         
     }
     

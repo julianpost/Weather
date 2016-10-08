@@ -11,7 +11,7 @@
 		E800E9D91D48388300F3F8EC /* Weather+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E800E9D71D48388300F3F8EC /* Weather+CoreDataProperties.swift */; };
 		E800E9DA1D48388300F3F8EC /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = E800E9D81D48388300F3F8EC /* Weather.swift */; };
 		E805D8F41D735BEF00E58FCA /* ArrayCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805D8F31D735BEF00E58FCA /* ArrayCalculations.swift */; };
-		E816D4A21D5409C0005DA4D9 /* PrecipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E816D4A11D5409C0005DA4D9 /* PrecipView.swift */; };
+		E816D4A21D5409C0005DA4D9 /* UpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E816D4A11D5409C0005DA4D9 /* UpdateView.swift */; };
 		E81D853B1D56546600187B94 /* PrecipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81D853A1D56546600187B94 /* PrecipViewController.swift */; };
 		E8541EDB1D4D613D00A4CC93 /* WeatherDataArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8541EDA1D4D613D00A4CC93 /* WeatherDataArrays.swift */; };
 		E868D2031D45045D0093E4C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E868D2021D45045D0093E4C0 /* AppDelegate.swift */; };
@@ -163,7 +163,7 @@
 		E800E9D71D48388300F3F8EC /* Weather+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Weather+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E800E9D81D48388300F3F8EC /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		E805D8F31D735BEF00E58FCA /* ArrayCalculations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayCalculations.swift; sourceTree = "<group>"; };
-		E816D4A11D5409C0005DA4D9 /* PrecipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrecipView.swift; sourceTree = "<group>"; };
+		E816D4A11D5409C0005DA4D9 /* UpdateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateView.swift; sourceTree = "<group>"; };
 		E81D853A1D56546600187B94 /* PrecipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrecipViewController.swift; sourceTree = "<group>"; };
 		E8541EDA1D4D613D00A4CC93 /* WeatherDataArrays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDataArrays.swift; sourceTree = "<group>"; };
 		E868D1FF1D45045D0093E4C0 /* NOAA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NOAA.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,7 +220,7 @@
 				E81D853A1D56546600187B94 /* PrecipViewController.swift */,
 				E868D2041D45045D0093E4C0 /* TempViewController.swift */,
 				E895960B1D89E210001F7DA6 /* FetchAllData.swift */,
-				E816D4A11D5409C0005DA4D9 /* PrecipView.swift */,
+				E816D4A11D5409C0005DA4D9 /* UpdateView.swift */,
 				E805D8F31D735BEF00E58FCA /* ArrayCalculations.swift */,
 				E8D80AB41D46DF9600C18ACD /* NOAARequests.swift */,
 				E8541EDA1D4D613D00A4CC93 /* WeatherDataArrays.swift */,
@@ -456,7 +456,7 @@
 				E81D853B1D56546600187B94 /* PrecipViewController.swift in Sources */,
 				E800E9D91D48388300F3F8EC /* Weather+CoreDataProperties.swift in Sources */,
 				E895960C1D89E210001F7DA6 /* FetchAllData.swift in Sources */,
-				E816D4A21D5409C0005DA4D9 /* PrecipView.swift in Sources */,
+				E816D4A21D5409C0005DA4D9 /* UpdateView.swift in Sources */,
 				E868D2031D45045D0093E4C0 /* AppDelegate.swift in Sources */,
 				E8541EDB1D4D613D00A4CC93 /* WeatherDataArrays.swift in Sources */,
 			);
