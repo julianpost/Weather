@@ -80,7 +80,7 @@ var normalTMINLoaded = false
     }
     
     
-    var precipCalc:[Date : Float] = [:]
+    //var precipCalc:[Date : Float] = [:]
     var startMinusOne = dateFor.normalYearStart
    
     
