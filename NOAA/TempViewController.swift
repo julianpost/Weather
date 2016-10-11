@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     @IBAction func dismissView(_ sender: AnyObject) {
         
         // Dismiss View Controller
-        navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
         
     }
     
