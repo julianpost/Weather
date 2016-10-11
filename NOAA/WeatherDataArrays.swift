@@ -44,11 +44,6 @@ var normalTMINLoaded = false
         
         blankDict[start] = counter
         
-       // print(blankDict.count)
-       // print(start)
-        //print(blankDict[end])
-       // print("end: \(end)")
-        
         counter += 0.1
         
         // increment the date by 1 day
@@ -59,10 +54,7 @@ var normalTMINLoaded = false
         
     } while start != end
     
-    //print(blankDict)
-    
     let sortedDict = blankDict.sorted { $0.0.compare($1.0) == .orderedAscending }
-    
     
     var arrYear: [Float] = []
     for (_,value) in sortedDict {
@@ -87,9 +79,6 @@ var normalTMINLoaded = false
         
     }
     
-   // print("arrYear \(arrYear)")
-   // print("arrMonth \(arrMonth)")
-   // print("arrWeek \(arrWeek)")
     
     var precipCalc:[Date : Float] = [:]
     var startMinusOne = dateFor.normalYearStart
@@ -104,24 +93,6 @@ var normalTMINLoaded = false
     var startMinusOneDateComponents = DateComponents()
     startMinusOneDateComponents.day = -1
     startMinusOne = gregorian.date(byAdding: startMinusOneDateComponents, to: startMinusOne)!
-    
-   /* repeat {
-        
-        precipCalc[start] = mainWeatherData.normalPrecipDict[start]! + (mainWeatherData.normalPrecipDict[startMinusOne] ?? 0.0)
-        
-        // print("end: \(precipCalc)")
-        
-        
-        // increment the date by 1 day
-        let dateComponents = NSDateComponents()
-        dateComponents.day = 1
-        start = gregorian.dateByAddingComponents(dateComponents, toDate: start, options: NSCalendarOptions(rawValue: 0))!
-        startMinusOne = gregorian.dateByAddingComponents(dateComponents, toDate: startMinusOne, options: NSCalendarOptions(rawValue: 0))!
-        
-    } while start != end
-   */
-    
-  
     
     self.currentYearPrecipDict = blankDict
     self.currentYearTemperatureMaxDict = blankDict
@@ -167,9 +138,6 @@ var normalTMINLoaded = false
     
     
 }
-
-/*var mainWeatherData = WeatherDataArrays(currentYearPrecipArray: arr, currentYearTemperatureMaxArray: arr, currentYearTemperatureMinArray: arr, normalPrecipArray: arr, normalTemperatureMaxArray: arr, normalTemperatureMinArray: arr, currentYearPrecipDict: blankDict, currentYearTemperatureMaxDict: blankDict, currentYearTemperatureMinDict: blankDict, normalPrecipDict: blankDict, normalTemperatureMaxDict: blankDict, normalTemperatureMinDict: blankDict, precipCumulativenormal: blankDict, precipCumulativeThisYear: blankDict)
-*/
 
 var mainWeatherData = WeatherDataArrays(currentYearPrecipArray: [], currentYearTemperatureMaxArray: [], currentYearTemperatureMinArray: [], normalPrecipArray: [], normalTemperatureMaxArray: [],normalTemperatureMinArray: [], currentMonthPrecipArray: [], currentMonthTemperatureMaxArray: [], currentMonthTemperatureMinArray: [], normalMonthPrecipArray: [], normalMonthTemperatureMaxArray: [],normalMonthTemperatureMinArray: [], currentWeekPrecipArray: [], currentWeekTemperatureMaxArray: [], currentWeekTemperatureMinArray: [], normalWeekPrecipArray: [], normalWeekTemperatureMaxArray: [],normalWeekTemperatureMinArray: [],currentYearPrecipDict: [:], currentYearTemperatureMaxDict: [:], currentYearTemperatureMinDict: [:], normalPrecipDict: [:], normalTemperatureMaxDict: [:], normalTemperatureMinDict: [:], precipCumulativeNormal: [], precipCumulativeThisYear: [], degreeDayCumulativeNormal: [], degreeDayCumulativeThisYear: [], currentPrecipLoaded: false, normalPrecipLoaded: false, currentTMAXLoaded: false, normalTMAXLoaded: false, currentTMINLoaded: false, normalTMINLoaded: false)
 
