@@ -11,7 +11,19 @@ import UIKit
 
 class DateFunctions {
     
-    
+    static func stringToNSDate(_ string: String) -> Date {
+        var date: Date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        date = dateFormatter.date(from: string)!
+        //  print("before \(date)")
+        //  date = NSCalendar.currentCalendar().startOfDayForDate(date)
+        //  print("after \(date)")
+        
+        return date
+        
+        
+    }
 
     static func currentYearStartMath(todaysDate: Date) -> Date {
         
@@ -240,20 +252,7 @@ class DateFunctions {
 class DateFor {
 
 
-    static func stringToNSDate(_ string: String) -> Date {
-    var date: Date
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-    date = dateFormatter.date(from: string)!
-      //  print("before \(date)")
-  //  date = NSCalendar.currentCalendar().startOfDayForDate(date)
-      //  print("after \(date)")
     
-    return date
-        
-        
-    }
-
     
     var currentYearStart, currentYearEnd, currentMonthStart, currentMonthEnd, currentWeekStart, currentWeekEnd, normalYearStart, normalYearEnd, normalMonthStart, normalMonthEnd, normalWeekStart, normalWeekEnd: Date
     var stringOfCurrentYearStart, stringOfCurrentYearEnd, stringOfCurrentMonthStart, stringOfCurrentMonthEnd, stringOfCurrentWeekStart, stringOfCurrentWeekEnd, stringOfNormalYearStart, stringOfNormalYearEnd, stringOfNormalMonthStart, stringOfNormalMonthEnd, stringOfNormalWeekStart, stringOfNormalWeekEnd: String

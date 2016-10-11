@@ -47,11 +47,8 @@ class CallNOAA {
             
         ]
         
-        let priority = DispatchQueue.GlobalQueuePriority.default
-        DispatchQueue.global(priority: priority).async {
-           
         
-        Alamofire.request(.GET,"https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=\(dataSet)&stationid=GHCND:USW00014742&units=standard", parameters: parameters, headers: headers)
+        Alamofire.request("https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=\(dataSet)&stationid=GHCND:USW00014742&units=standard", parameters: parameters, headers: headers)
             .validate(statusCode: 200..<300).responseJSON { (responseData) -> Void in
                 //debugPrint(responseData)
                 switch responseData.result {
@@ -67,7 +64,7 @@ class CallNOAA {
                         for i in array {
                             if let date = i["date"], let value = i["value"] {
                                 let stringOfDate = "\(date)"
-                                let formattedDate = Date.stringToNSDate(stringOfDate)
+                                let formattedDate = DateFunctions.stringToNSDate(stringOfDate)
                                 let stringOfValue = "\(value)"
                                 let floatOfValue = Float(stringOfValue)
                                 dict[formattedDate] = floatOfValue
@@ -89,9 +86,6 @@ class CallNOAA {
                 
         }
 
-            DispatchQueue.main.async {
-            }
-        }
     }
 
 /* static func requestTemperatureMax(startDate: String, endDate: String, dataSet: String, dataType: String, array: [[String:AnyObject]], dict: [NSDate : Float]) -> [NSDate : Float] {
