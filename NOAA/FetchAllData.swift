@@ -17,11 +17,6 @@ class FetchAllData {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         
-        //let currentYearStartDate = dateFor.currentYearStart
-        //let currentYearEndDate = dateFor.currentYearEnd
-        
-        //let currentYearStartDateString = formatter.string(from: dateFor.currentYearStart)
-        //let currentYearEndDateString = formatter.string(from: dateFor.currentYearEnd)
         
         CallNOAA.requestWeather(dateFor.stringOfCurrentYearStart, endDate: dateFor.stringOfCurrentYearEnd, dataSet: "GHCND", dataType: "PRCP") { responseObject in
             // use responseObject and error here
@@ -34,16 +29,6 @@ class FetchAllData {
             
             return
         }
-        
-        
-        //let normalStartDate = dateFor.normalYearStart
-        //let normalEndDate = dateFor.normalYearEnd
-        
-        
-        //let normalStartDateString = formatter.string(from: dateFor.normalYearStart)
-        //let normalEndDateString = formatter.string(from: dateFor.normalYearEnd)
-        
-        
         
         CallNOAA.requestWeather(dateFor.stringOfNormalYearStart, endDate: dateFor.stringOfNormalYearEnd , dataSet: "NORMAL_DLY", dataType: "DLY-PRCP-NORMAL") { responseObject in
             // use responseObject and error here
@@ -67,12 +52,6 @@ class FetchAllData {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         
-        //let currentYearStartDate = dateFor.currentYearStart
-        //let currentYearEndDate = dateFor.currentYearEnd
-        
-        //let currentYearStartDateString = formatter.string(from: dateFor.currentYearStart)
-        //let currentYearEndDateString = formatter.string(from: dateFor.currentYearEnd)
-        
         
         CallNOAA.requestWeather(dateFor.stringOfCurrentYearStart, endDate: dateFor.stringOfCurrentYearEnd, dataSet: "GHCND", dataType: "TMAX") { responseObject in
             // use responseObject and error here
@@ -95,12 +74,6 @@ class FetchAllData {
             return
         }
         
-        //let normalStartDate = dateFor.normalYearStart
-        //let normalEndDate = dateFor.normalYearEnd
-        
-        //let normalStartDateString = formatter.string(from: dateFor.normalYearStart)
-        //let normalEndDateString = formatter.string(from: dateFor.normalYearEnd)
-        
         
         CallNOAA.requestWeather(dateFor.stringOfNormalYearStart, endDate: dateFor.stringOfNormalYearEnd, dataSet: "NORMAL_DLY", dataType: "DLY-TMAX-NORMAL") { responseObject in
             // use responseObject and error here
@@ -110,12 +83,7 @@ class FetchAllData {
             mainWeatherData.normalWeekTemperatureMaxArray = TransformArray.toNormalWeek(responseObject)
             mainWeatherData.normalTMAXLoaded = true
             UpdateView.handleTempCompletion(view)
-            //print(mainWeatherData.normalTemperatureMaxArray)
-            //print(mainWeatherData.normalMonthTemperatureMaxArray)
-            //print(mainWeatherData.normalWeekTemperatureMaxArray)
-            //print(mainWeatherData.normalTemperatureMaxArray)
-            
-            //print("responseObject = \(responseObject)")
+
             return
         }
         
@@ -136,7 +104,7 @@ class FetchAllData {
         newArray = TransformArray.toDegreeDay(50.0, maxTemp: 86.0, tMin: mainWeatherData.normalTemperatureMinArray, tMax: mainWeatherData.normalTemperatureMaxArray)
         mainWeatherData.degreeDayCumulativeNormal = TransformArray.toCumulative(newArray)
         print(mainWeatherData.degreeDayCumulativeNormal)
-        //print("done")
+        
     }
     
     

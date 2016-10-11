@@ -29,25 +29,25 @@ class TransformArray {
     static func toCurrentMonth(_ dictionary: [Foundation.Date:Float]) -> [Float] {
     
         var arr: [Float] = []
-        let today = Foundation.Date()
+        //let today = Foundation.Date()
         let gregorian: Calendar! = Calendar(identifier: Calendar.Identifier.gregorian)
         
-        var start = Date.currentMonthStartMath(today)
-        let end = Date.currentMonthEndMath(today)
+        var start = dateFor.currentMonthStart
+        let end = dateFor.currentMonthEnd
         
-        while start.compare(end) != ComparisonResult.OrderedSame {
+        while start.compare(end) != ComparisonResult.orderedSame {
             var counter = 0
             
             if let value = dictionary[start] {
                 
                 //arr[counter] = value
-                arr.insert(value, atIndex: counter)
+                arr.insert(value, at: counter)
             }
             
             // increment the date by 1 day
             var dateComponents = DateComponents()
             dateComponents.day = 1
-            start = gregorian.dateByAddingComponents(dateComponents, toDate: start, options: NSCalendar.Options(rawValue: 0))!
+            start = gregorian.date(byAdding: dateComponents, to: start)!
             
             // increment the counter by 1
             
@@ -61,16 +61,16 @@ class TransformArray {
     static func toCurrentWeek(_ dictionary: [Foundation.Date:Float]) -> [Float] {
         
         var arr: [Float] = []
-        let today = Foundation.Date()
+        //let today = Foundation.Date()
         let gregorian: Calendar! = Calendar(identifier: Calendar.Identifier.gregorian)
         
-        var start = Date.currentWeekStartMath(today)
-        let end = Date.currentWeekEndMath(today)
+        var start = dateFor.currentWeekStart
+        let end = dateFor.currentWeekEnd
         
         //print("start\(start)")
         //print("end\(end)")
         
-        while start.compare(end) != ComparisonResult.OrderedSame {
+        while start.compare(end) != ComparisonResult.orderedSame {
             var counter = 0
             
             if let value = dictionary[start] {
@@ -78,13 +78,13 @@ class TransformArray {
                 //print("value\(value)")
                 
                 //arr[counter] = value
-                arr.insert(value, atIndex: counter)
+                arr.insert(value, at: counter)
             }
             
             // increment the date by 1 day
             var dateComponents = DateComponents()
             dateComponents.day = 1
-            start = gregorian.dateByAddingComponents(dateComponents, toDate: start, options: NSCalendar.Options(rawValue: 0))!
+            start = gregorian.date(byAdding: dateComponents, to: start)!
             
             // increment the counter by 1
             
@@ -98,28 +98,28 @@ class TransformArray {
     static func toNormalMonth(_ dictionary: [Foundation.Date:Float]) -> [Float] {
         
         var arr: [Float] = []
-        let today = Foundation.Date()
+        //let today = Foundation.Date()
         let gregorian: Calendar! = Calendar(identifier: Calendar.Identifier.gregorian)
         
-        var start = Date.normalMonthStartMath(today)
-        let end = Date.normalMonthEndMath(today)
+        var start = dateFor.normalMonthStart
+        let end = dateFor.normalMonthEnd
         
         //print(start)
         //print(end)
         
-        while start.compare(end) != ComparisonResult.OrderedSame {
+        while start.compare(end) != ComparisonResult.orderedSame {
             var counter = 0
             
             if let value = dictionary[start] {
                 
                 //arr[counter] = value
-                arr.insert(value, atIndex: counter)
+                arr.insert(value, at: counter)
             }
             
             // increment the date by 1 day
             var dateComponents = DateComponents()
             dateComponents.day = 1
-            start = gregorian.dateByAddingComponents(dateComponents, toDate: start, options: NSCalendar.Options(rawValue: 0))!
+            start = gregorian.date(byAdding: dateComponents, to: start)!
             
             // increment the counter by 1
             
@@ -133,16 +133,16 @@ class TransformArray {
     static func toNormalWeek(_ dictionary: [Foundation.Date:Float]) -> [Float] {
         
         var arr: [Float] = []
-        let today = Foundation.Date()
+        //let today = Foundation.Date()
         let gregorian: Calendar! = Calendar(identifier: Calendar.Identifier.gregorian)
         
-        var start = Date.normalWeekStartMath(today)
-        let end = Date.normalWeekEndMath(today)
+        var start = dateFor.normalWeekStart
+        let end = dateFor.normalWeekEnd
         
         //print("start\(start)")
         //print("end\(end)")
         
-        while start.compare(end) != ComparisonResult.OrderedSame {
+        while start.compare(end) != ComparisonResult.orderedSame {
             var counter = 0
             
             if let value = dictionary[start] {
@@ -150,13 +150,13 @@ class TransformArray {
                 //print("value\(value)")
                 
                 //arr[counter] = value
-                arr.insert(value, atIndex: counter)
+                arr.insert(value, at: counter)
             }
             
             // increment the date by 1 day
             var dateComponents = DateComponents()
             dateComponents.day = 1
-            start = gregorian.dateByAddingComponents(dateComponents, toDate: start, options: NSCalendar.Options(rawValue: 0))!
+            start = gregorian.date(byAdding: dateComponents, to: start)!
             
             // increment the counter by 1
             
