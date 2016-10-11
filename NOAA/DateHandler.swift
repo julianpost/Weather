@@ -9,16 +9,242 @@
 import Foundation
 import UIKit
 
-class Date {
+class DateFunctions {
     
-    let todayGlobal = NSDate()
+    
+
+    static func currentYearStartMath(todaysDate: Date) -> Date {
+        
+        let userCalendar = Calendar.current
+        
+        let today = Calendar.current.startOfDay(for: todaysDate)
+        
+        let requestedDateComponents: NSCalendar.Unit = [.year, .month, .day]
+        
+        var todaysDateComponents = (userCalendar as NSCalendar).components(requestedDateComponents, from: today)
+        
+        todaysDateComponents.month = 1
+        todaysDateComponents.day = 1
+        
+        return userCalendar.date(from: todaysDateComponents)!
+        
+    }
+    
+    static func currentYearEndMath(_ todaysDate: Date) -> Date {
+        
+        let today = Calendar.current.startOfDay(for: todaysDate)
+        
+        let endDate = today
+        return endDate
+    }
+    
+    static func currentMonthStartMath(_ todaysDate: Date) -> Date {
+        
+        let userCalendar = Calendar.current
+        
+        let today = Calendar.current.startOfDay(for: todaysDate)
+        
+        let requestedDateComponents: NSCalendar.Unit = [.year, .month, .day]
+        
+        var todaysDateComponents = (userCalendar as NSCalendar).components(requestedDateComponents, from: today)
+        
+        todaysDateComponents.day = 1
+        
+        return userCalendar.date(from: todaysDateComponents)!
+        
+    }
+    
+    static func currentMonthEndMath(_ todaysDate: Date) -> Date {
+        
+        let today = Calendar.current.startOfDay(for: todaysDate)
+        
+        let endDate = today
+        return endDate
+    }
+    
+    static func currentWeekStartMath(_ todaysDate: Date) -> Date {
+        
+        let userCalendar = Calendar.current
+        
+        let today = Calendar.current.startOfDay(for: todaysDate)
+        
+        let requestedDateComponents: NSCalendar.Unit = [.year, .month, .day]
+        
+        var todaysDateComponents = (userCalendar as NSCalendar).components(requestedDateComponents, from: today)
+        
+        todaysDateComponents.day! -= 7
+        
+        return userCalendar.date(from: todaysDateComponents)!
+        
+    }
+    
+    static func currentWeekEndMath(_ todaysDate: Date) -> Date {
+        
+        let today = Calendar.current.startOfDay(for: todaysDate)
+        
+        let endDate = today
+        return endDate
+    }
+    
+    
+    static func lastYearStartMath(_ todaysDate: Date) -> Date {
+        
+        let userCalendar = Calendar.current
+        
+        let today = Calendar.current.startOfDay(for: todaysDate)
+        
+        let requestedDateComponents: NSCalendar.Unit = [.year, .month, .day]
+        
+        var todaysDateComponents = (userCalendar as NSCalendar).components(requestedDateComponents, from: today)
+        
+        todaysDateComponents.year! -= 1
+        todaysDateComponents.month = 1
+        todaysDateComponents.day = 1
+        
+        
+        return userCalendar.date(from: todaysDateComponents)!
+    }
+    
+    
+    static func lastYearEndMath(_ todaysDate: Date) -> Date {
+        
+        let userCalendar = Calendar.current
+        
+        let today = Calendar.current.startOfDay(for: todaysDate)
+        
+        let requestedDateComponents: NSCalendar.Unit = [.year, .month, .day]
+        
+        var todaysDateComponents = (userCalendar as NSCalendar).components(requestedDateComponents, from: today)
+        
+        todaysDateComponents.year! -= 1
+        todaysDateComponents.month = 12
+        todaysDateComponents.day = 31
+        
+        
+        return userCalendar.date(from: todaysDateComponents)!
+        
+    }
+    
+    static func normalYearStartMath(_ todaysDate: Date) -> Date {
+        
+        let userCalendar = Calendar.current
+        
+        let today = Calendar.current.startOfDay(for: todaysDate)
+        
+        let requestedDateComponents: NSCalendar.Unit = [.year, .month, .day]
+        
+        var todaysDateComponents = (userCalendar as NSCalendar).components(requestedDateComponents, from: today)
+        
+        todaysDateComponents.year = 2010
+        todaysDateComponents.month = 1
+        todaysDateComponents.day = 1
+        
+        
+        return userCalendar.date(from: todaysDateComponents)!
+    }
+    
+    
+    static func normalYearEndMath(_ todaysDate: Date) -> Date {
+        
+        let userCalendar = Calendar.current
+        
+        let today = Calendar.current.startOfDay(for: todaysDate)
+        
+        let requestedDateComponents: NSCalendar.Unit = [.year, .month, .day]
+        
+        var todaysDateComponents = (userCalendar as NSCalendar).components(requestedDateComponents, from: today)
+        
+        todaysDateComponents.year = 2010
+        todaysDateComponents.month = 12
+        todaysDateComponents.day = 31
+        
+        
+        return userCalendar.date(from: todaysDateComponents)!
+        
+    }
+    
+    
+    static func normalMonthStartMath(_ todaysDate: Date) -> Date {
+        
+        let userCalendar = Calendar.current
+        
+        let today = Calendar.current.startOfDay(for: todaysDate)
+        
+        let requestedDateComponents: NSCalendar.Unit = [.year, .month, .day]
+        
+        var todaysDateComponents = (userCalendar as NSCalendar).components(requestedDateComponents, from: today)
+        
+        todaysDateComponents.year = 2010
+        todaysDateComponents.day = 1
+        
+        return userCalendar.date(from: todaysDateComponents)!
+        
+    }
+    
+    static func normalMonthEndMath(_ todaysDate: Date) -> Date {
+        
+        let userCalendar = Calendar.current
+        
+        let today = Calendar.current.startOfDay(for: todaysDate)
+        
+        let requestedDateComponents: NSCalendar.Unit = [.year, .month, .day]
+        
+        var todaysDateComponents = (userCalendar as NSCalendar).components(requestedDateComponents, from: today)
+        
+        todaysDateComponents.year = 2010
+        todaysDateComponents.month! += 1
+        todaysDateComponents.day = 1
+        todaysDateComponents.day! -= 1
+        
+        
+        return userCalendar.date(from: todaysDateComponents)!
+    }
+    
+    static func normalWeekStartMath(_ todaysDate: Date) -> Date {
+        
+        let userCalendar = Calendar.current
+        
+        let today = Calendar.current.startOfDay(for: todaysDate)
+        
+        let requestedDateComponents: NSCalendar.Unit = [.year, .month, .day]
+        
+        var todaysDateComponents = (userCalendar as NSCalendar).components(requestedDateComponents, from: today)
+        
+        todaysDateComponents.year = 2010
+        todaysDateComponents.day! -= 7
+        
+        return userCalendar.date(from: todaysDateComponents)!
+        
+    }
+    
+    static func normalWeekEndMath(_ todaysDate: Date) -> Date {
+        
+        let userCalendar = Calendar.current
+        
+        let today = Calendar.current.startOfDay(for: todaysDate)
+        
+        let requestedDateComponents: NSCalendar.Unit = [.year, .month, .day]
+        
+        var todaysDateComponents = (userCalendar as NSCalendar).components(requestedDateComponents, from: today)
+        
+        todaysDateComponents.year = 2010
+        
+        
+        return userCalendar.date(from: todaysDateComponents)!
+    }
 
 
-    static func stringToNSDate(string: String) -> NSDate {
-    var date: NSDate
-    let dateFormatter = NSDateFormatter()
+
+
+}
+class DateFor {
+
+
+    static func stringToNSDate(_ string: String) -> Date {
+    var date: Date
+    let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-    date = dateFormatter.dateFromString(string)!
+    date = dateFormatter.date(from: string)!
       //  print("before \(date)")
   //  date = NSCalendar.currentCalendar().startOfDayForDate(date)
       //  print("after \(date)")
@@ -29,244 +255,41 @@ class Date {
     }
 
     
-    var currentYearStart, currentYearEnd, currentMonthStart, currentMonthEnd, currentWeekStart, currentWeekEnd, normalYearStart, normalYearEnd, normalMonthStart, normalMonthEnd, normalWeekStart, normalWeekEnd: NSDate
+    var currentYearStart, currentYearEnd, currentMonthStart, currentMonthEnd, currentWeekStart, currentWeekEnd, normalYearStart, normalYearEnd, normalMonthStart, normalMonthEnd, normalWeekStart, normalWeekEnd: Date
+    var stringOfCurrentYearStart, stringOfCurrentYearEnd, stringOfCurrentMonthStart, stringOfCurrentMonthEnd, stringOfCurrentWeekStart, stringOfCurrentWeekEnd, stringOfNormalYearStart, stringOfNormalYearEnd, stringOfNormalMonthStart, stringOfNormalMonthEnd, stringOfNormalWeekStart, stringOfNormalWeekEnd: String
     
-    init(currentYearStart: NSDate, currentYearEnd: NSDate, currentMonthStart: NSDate, currentMonthEnd: NSDate, currentWeekStart: NSDate, currentWeekEnd: NSDate, normalYearStart: NSDate, normalYearEnd: NSDate, normalMonthStart: NSDate, normalMonthEnd: NSDate, normalWeekStart: NSDate, normalWeekEnd: NSDate) {
+    init(currentYearStart: Date, currentYearEnd: Date, currentMonthStart: Date, currentMonthEnd: Date, currentWeekStart: Date, currentWeekEnd: Date, normalYearStart: Date, normalYearEnd: Date, normalMonthStart: Date, normalMonthEnd: Date, normalWeekStart: Date, normalWeekEnd: Date, stringOfCurrentYearStart: String, stringOfCurrentYearEnd: String, stringOfCurrentMonthStart: String, stringOfCurrentMonthEnd: String, stringOfCurrentWeekStart: String, stringOfCurrentWeekEnd: String, stringOfNormalYearStart: String, stringOfNormalYearEnd: String, stringOfNormalMonthStart: String, stringOfNormalMonthEnd: String, stringOfNormalWeekStart: String, stringOfNormalWeekEnd: String) {
         
-
-        func currentYearStartMath(todaysDate: NSDate) -> NSDate {
-            
-            let userCalendar = NSCalendar.currentCalendar()
-            
-            let today = NSCalendar.currentCalendar().startOfDayForDate(todaysDate)
-            
-            let requestedDateComponents: NSCalendarUnit = [.Year, .Month, .Day]
-            
-            let todaysDateComponents = userCalendar.components(requestedDateComponents, fromDate: today)
-            
-            todaysDateComponents.month = 1
-            todaysDateComponents.day = 1
-            
-            return userCalendar.dateFromComponents(todaysDateComponents)!
-            
-        }
-        
-        func currentYearEndMath(todaysDate: NSDate) -> NSDate {
-            
-            let today = NSCalendar.currentCalendar().startOfDayForDate(todaysDate)
-            
-            let endDate = today
-            return endDate
-        }
-        
-        func currentMonthStartMath(todaysDate: NSDate) -> NSDate {
-            
-            let userCalendar = NSCalendar.currentCalendar()
-            
-            let today = NSCalendar.currentCalendar().startOfDayForDate(todaysDate)
-            
-            let requestedDateComponents: NSCalendarUnit = [.Year, .Month, .Day]
-            
-            let todaysDateComponents = userCalendar.components(requestedDateComponents, fromDate: today)
-            
-            todaysDateComponents.day = 1
-            
-            return userCalendar.dateFromComponents(todaysDateComponents)!
-            
-        }
-        
-        func currentMonthEndMath(todaysDate: NSDate) -> NSDate {
-            
-            let today = NSCalendar.currentCalendar().startOfDayForDate(todaysDate)
-            
-            let endDate = today
-            return endDate
-        }
-        
-        func currentWeekStartMath(todaysDate: NSDate) -> NSDate {
-            
-            let userCalendar = NSCalendar.currentCalendar()
-            
-            let today = NSCalendar.currentCalendar().startOfDayForDate(todaysDate)
-            
-            let requestedDateComponents: NSCalendarUnit = [.Year, .Month, .Day]
-            
-            let todaysDateComponents = userCalendar.components(requestedDateComponents, fromDate: today)
-            
-            todaysDateComponents.day -= 7
-            
-            return userCalendar.dateFromComponents(todaysDateComponents)!
-            
-        }
-        
-        func currentWeekEndMath(todaysDate: NSDate) -> NSDate {
-            
-            let today = NSCalendar.currentCalendar().startOfDayForDate(todaysDate)
-            
-            let endDate = today
-            return endDate
-        }
+        let todayGlobal = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
         
         
-        func lastYearStartMath(todaysDate: NSDate) -> NSDate {
-            
-            let userCalendar = NSCalendar.currentCalendar()
-            
-            let today = NSCalendar.currentCalendar().startOfDayForDate(todaysDate)
-            
-            let requestedDateComponents: NSCalendarUnit = [.Year, .Month, .Day]
-            
-            let todaysDateComponents = userCalendar.components(requestedDateComponents, fromDate: today)
-            
-            todaysDateComponents.year -= 1
-            todaysDateComponents.month = 1
-            todaysDateComponents.day = 1
-            
-            
-            return userCalendar.dateFromComponents(todaysDateComponents)!
-        }
+        self.currentYearStart = DateFunctions.currentYearStartMath(todaysDate: todayGlobal)
+        self.currentYearEnd = DateFunctions.currentYearEndMath(todayGlobal)
+        self.currentMonthStart = DateFunctions.currentMonthStartMath(todayGlobal)
+        self.currentMonthEnd = DateFunctions.currentMonthEndMath(todayGlobal)
+        self.currentWeekStart = DateFunctions.currentWeekStartMath(todayGlobal)
+        self.currentWeekEnd = DateFunctions.currentWeekEndMath(todayGlobal)
+        self.normalYearStart = DateFunctions.normalYearStartMath(todayGlobal)
+        self.normalYearEnd = DateFunctions.normalYearEndMath(todayGlobal)
+        self.normalMonthStart = DateFunctions.normalMonthStartMath(todayGlobal)
+        self.normalMonthEnd = DateFunctions.normalMonthEndMath(todayGlobal)
+        self.normalWeekStart = DateFunctions.normalWeekStartMath(todayGlobal)
+        self.normalWeekEnd = DateFunctions.normalWeekEndMath(todayGlobal)
         
-        
-        func lastYearEndMath(todaysDate: NSDate) -> NSDate {
-            
-            let userCalendar = NSCalendar.currentCalendar()
-            
-            let today = NSCalendar.currentCalendar().startOfDayForDate(todaysDate)
-            
-            let requestedDateComponents: NSCalendarUnit = [.Year, .Month, .Day]
-            
-            let todaysDateComponents = userCalendar.components(requestedDateComponents, fromDate: today)
-            
-            todaysDateComponents.year -= 1
-            todaysDateComponents.month = 12
-            todaysDateComponents.day = 31
-            
-            
-            return userCalendar.dateFromComponents(todaysDateComponents)!
-            
-        }
-        
-        func normalYearStartMath(todaysDate: NSDate) -> NSDate {
-            
-            let userCalendar = NSCalendar.currentCalendar()
-            
-            let today = NSCalendar.currentCalendar().startOfDayForDate(todaysDate)
-            
-            let requestedDateComponents: NSCalendarUnit = [.Year, .Month, .Day]
-            
-            let todaysDateComponents = userCalendar.components(requestedDateComponents, fromDate: today)
-            
-            todaysDateComponents.year = 2010
-            todaysDateComponents.month = 1
-            todaysDateComponents.day = 1
-            
-            
-            return userCalendar.dateFromComponents(todaysDateComponents)!
-        }
-        
-        
-        func normalYearEndMath(todaysDate: NSDate) -> NSDate {
-            
-            let userCalendar = NSCalendar.currentCalendar()
-            
-            let today = NSCalendar.currentCalendar().startOfDayForDate(todaysDate)
-            
-            let requestedDateComponents: NSCalendarUnit = [.Year, .Month, .Day]
-            
-            let todaysDateComponents = userCalendar.components(requestedDateComponents, fromDate: today)
-            
-            todaysDateComponents.year = 2010
-            todaysDateComponents.month = 12
-            todaysDateComponents.day = 31
-            
-            
-            return userCalendar.dateFromComponents(todaysDateComponents)!
-            
-        }
-        
-        
-        func normalMonthStartMath(todaysDate: NSDate) -> NSDate {
-            
-            let userCalendar = NSCalendar.currentCalendar()
-            
-            let today = NSCalendar.currentCalendar().startOfDayForDate(todaysDate)
-            
-            let requestedDateComponents: NSCalendarUnit = [.Year, .Month, .Day]
-            
-            let todaysDateComponents = userCalendar.components(requestedDateComponents, fromDate: today)
-            
-            todaysDateComponents.year = 2010
-            todaysDateComponents.day = 1
-            
-            return userCalendar.dateFromComponents(todaysDateComponents)!
-            
-        }
-        
-        func normalMonthEndMath(todaysDate: NSDate) -> NSDate {
-            
-            let userCalendar = NSCalendar.currentCalendar()
-            
-            let today = NSCalendar.currentCalendar().startOfDayForDate(todaysDate)
-            
-            let requestedDateComponents: NSCalendarUnit = [.Year, .Month, .Day]
-            
-            let todaysDateComponents = userCalendar.components(requestedDateComponents, fromDate: today)
-            
-            todaysDateComponents.year = 2010
-            todaysDateComponents.month += 1
-            todaysDateComponents.day = 1
-            todaysDateComponents.day -= 1
-            
-            
-            return userCalendar.dateFromComponents(todaysDateComponents)!
-        }
-        
-        func normalWeekStartMath(todaysDate: NSDate) -> NSDate {
-            
-            let userCalendar = NSCalendar.currentCalendar()
-            
-            let today = NSCalendar.currentCalendar().startOfDayForDate(todaysDate)
-            
-            let requestedDateComponents: NSCalendarUnit = [.Year, .Month, .Day]
-            
-            let todaysDateComponents = userCalendar.components(requestedDateComponents, fromDate: today)
-            
-            todaysDateComponents.year = 2010
-            todaysDateComponents.day -= 7
-            
-            return userCalendar.dateFromComponents(todaysDateComponents)!
-            
-        }
-        
-        func normalWeekEndMath(todaysDate: NSDate) -> NSDate {
-            
-            let userCalendar = NSCalendar.currentCalendar()
-            
-            let today = NSCalendar.currentCalendar().startOfDayForDate(todaysDate)
-            
-            let requestedDateComponents: NSCalendarUnit = [.Year, .Month, .Day]
-            
-            let todaysDateComponents = userCalendar.components(requestedDateComponents, fromDate: today)
-            
-            todaysDateComponents.year = 2010
-            
-            
-            return userCalendar.dateFromComponents(todaysDateComponents)!
-        }
-    
-        
-        self.currentYearStart = currentYearStartMath(todayGlobal)
-        self.currentYearEnd = currentYearEndMath(todayGlobal)
-        self.currentMonthStart = currentMonthStartMath(todayGlobal)
-        self.currentMonthEnd = currentMonthEndMath(todayGlobal)
-        self.currentWeekStart = currentWeekStartMath(todayGlobal)
-        self.currentWeekEnd = currentWeekEndMath(todayGlobal)
-        self.normalYearStart = normalYearStartMath(todayGlobal)
-        self.normalYearEnd = normalYearEndMath(todayGlobal)
-        self.normalMonthStart = normalMonthStartMath(todayGlobal)
-        self.normalMonthEnd = normalMonthEndMath(todayGlobal)
-        self.normalWeekStart = normalWeekStartMath(todayGlobal)
-        self.normalWeekEnd = normalWeekEndMath(todayGlobal)
+        self.stringOfCurrentYearStart = formatter.string(from: DateFunctions.currentYearStartMath(todaysDate: todayGlobal))
+        self.stringOfCurrentYearEnd = formatter.string(from: DateFunctions.currentYearEndMath(todayGlobal))
+        self.stringOfCurrentMonthStart = formatter.string(from: DateFunctions.currentMonthStartMath(todayGlobal))
+        self.stringOfCurrentMonthEnd = formatter.string(from: DateFunctions.currentMonthEndMath(todayGlobal))
+        self.stringOfCurrentWeekStart = formatter.string(from: DateFunctions.currentWeekStartMath(todayGlobal))
+        self.stringOfCurrentWeekEnd = formatter.string(from: DateFunctions.currentWeekEndMath(todayGlobal))
+        self.stringOfNormalYearStart = formatter.string(from: DateFunctions.normalYearStartMath(todayGlobal))
+        self.stringOfNormalYearEnd = formatter.string(from: DateFunctions.normalYearEndMath(todayGlobal))
+        self.stringOfNormalMonthStart = formatter.string(from: DateFunctions.normalMonthStartMath(todayGlobal))
+        self.stringOfNormalMonthEnd = formatter.string(from: DateFunctions.normalMonthEndMath(todayGlobal))
+        self.stringOfNormalWeekStart = formatter.string(from: DateFunctions.normalWeekStartMath(todayGlobal))
+        self.stringOfNormalWeekEnd = formatter.string(from: DateFunctions.normalWeekEndMath(todayGlobal))
         
     
 
@@ -274,4 +297,4 @@ class Date {
 
 }
 
-var dates = Date()
+var dateFor = DateFor(currentYearStart: Date(), currentYearEnd: Date(), currentMonthStart: Date(), currentMonthEnd: Date(), currentWeekStart: Date(), currentWeekEnd: Date(), normalYearStart: Date(), normalYearEnd: Date(), normalMonthStart: Date(), normalMonthEnd: Date(), normalWeekStart: Date(), normalWeekEnd: Date(), stringOfCurrentYearStart: "", stringOfCurrentYearEnd: "", stringOfCurrentMonthStart: "", stringOfCurrentMonthEnd: "", stringOfCurrentWeekStart: "", stringOfCurrentWeekEnd: "", stringOfNormalYearStart: "", stringOfNormalYearEnd: "", stringOfNormalMonthStart: "", stringOfNormalMonthEnd: "", stringOfNormalWeekStart: "", stringOfNormalWeekEnd: "")

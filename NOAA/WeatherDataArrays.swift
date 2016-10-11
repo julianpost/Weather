@@ -17,7 +17,7 @@ var currentMonthPrecipArray, currentMonthTemperatureMaxArray, currentMonthTemper
 
 var currentWeekPrecipArray, currentWeekTemperatureMaxArray, currentWeekTemperatureMinArray, normalWeekPrecipArray, normalWeekTemperatureMaxArray,normalWeekTemperatureMinArray, precipCumulativeNormal, precipCumulativeThisYear, degreeDayCumulativeNormal, degreeDayCumulativeThisYear: [Float]
     
-var currentYearPrecipDict, currentYearTemperatureMaxDict, currentYearTemperatureMinDict, normalPrecipDict, normalTemperatureMaxDict, normalTemperatureMinDict: [NSDate : Float]
+var currentYearPrecipDict, currentYearTemperatureMaxDict, currentYearTemperatureMinDict, normalPrecipDict, normalTemperatureMaxDict, normalTemperatureMinDict: [Foundation.Date : Float]
     
 var currentPrecipLoaded = false
 var normalPrecipLoaded = false
@@ -26,19 +26,19 @@ var normalTMAXLoaded = false
 var currentTMINLoaded = false
 var normalTMINLoaded = false
     
-    init(currentYearPrecipArray: [Float], currentYearTemperatureMaxArray: [Float], currentYearTemperatureMinArray: [Float], normalPrecipArray: [Float], normalTemperatureMaxArray: [Float],normalTemperatureMinArray: [Float], currentMonthPrecipArray: [Float], currentMonthTemperatureMaxArray: [Float], currentMonthTemperatureMinArray: [Float], normalMonthPrecipArray: [Float], normalMonthTemperatureMaxArray: [Float],normalMonthTemperatureMinArray: [Float], currentWeekPrecipArray: [Float], currentWeekTemperatureMaxArray: [Float], currentWeekTemperatureMinArray: [Float], normalWeekPrecipArray: [Float], normalWeekTemperatureMaxArray: [Float],normalWeekTemperatureMinArray: [Float],currentYearPrecipDict: [NSDate : Float], currentYearTemperatureMaxDict: [NSDate : Float], currentYearTemperatureMinDict: [NSDate : Float], normalPrecipDict: [NSDate : Float], normalTemperatureMaxDict: [NSDate : Float], normalTemperatureMinDict: [NSDate : Float], precipCumulativeNormal: [Float], precipCumulativeThisYear: [Float], degreeDayCumulativeNormal: [Float], degreeDayCumulativeThisYear: [Float], currentPrecipLoaded: Bool, normalPrecipLoaded: Bool, currentTMAXLoaded: Bool, normalTMAXLoaded: Bool, currentTMINLoaded: Bool, normalTMINLoaded: Bool) {
+    init(currentYearPrecipArray: [Float], currentYearTemperatureMaxArray: [Float], currentYearTemperatureMinArray: [Float], normalPrecipArray: [Float], normalTemperatureMaxArray: [Float],normalTemperatureMinArray: [Float], currentMonthPrecipArray: [Float], currentMonthTemperatureMaxArray: [Float], currentMonthTemperatureMinArray: [Float], normalMonthPrecipArray: [Float], normalMonthTemperatureMaxArray: [Float],normalMonthTemperatureMinArray: [Float], currentWeekPrecipArray: [Float], currentWeekTemperatureMaxArray: [Float], currentWeekTemperatureMinArray: [Float], normalWeekPrecipArray: [Float], normalWeekTemperatureMaxArray: [Float],normalWeekTemperatureMinArray: [Float],currentYearPrecipDict: [Foundation.Date : Float], currentYearTemperatureMaxDict: [Foundation.Date : Float], currentYearTemperatureMinDict: [Foundation.Date : Float], normalPrecipDict: [Foundation.Date : Float], normalTemperatureMaxDict: [Foundation.Date : Float], normalTemperatureMinDict: [Foundation.Date : Float], precipCumulativeNormal: [Float], precipCumulativeThisYear: [Float], degreeDayCumulativeNormal: [Float], degreeDayCumulativeThisYear: [Float], currentPrecipLoaded: Bool, normalPrecipLoaded: Bool, currentTMAXLoaded: Bool, normalTMAXLoaded: Bool, currentTMINLoaded: Bool, normalTMINLoaded: Bool) {
     
-    let today = NSDate()
-    let gregorian: NSCalendar! = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+    let today = Foundation.Date()
+    let gregorian: Calendar! = Calendar(identifier: Calendar.Identifier.gregorian)
     
-    var blankDict:[NSDate : Float] = [:]
+    var blankDict:[Foundation.Date : Float] = [:]
     var start = Date.lastYearStartMath(today)
     var end = Date.lastYearEndMath(today)
      var counter: Float = 1
     
-    let dateComponents = NSDateComponents()
+    var dateComponents = DateComponents()
     dateComponents.day = 1
-    end = gregorian.dateByAddingComponents(dateComponents, toDate: end, options: NSCalendarOptions(rawValue: 0))!
+    end = gregorian.dateByAddingComponents(dateComponents, toDate: end, options: NSCalendar.Options(rawValue: 0))!
     
     repeat {
         
@@ -52,16 +52,16 @@ var normalTMINLoaded = false
         counter += 0.1
         
         // increment the date by 1 day
-        let dateComponents = NSDateComponents()
+        var dateComponents = DateComponents()
         dateComponents.day = 1
-        start = gregorian.dateByAddingComponents(dateComponents, toDate: start, options: NSCalendarOptions(rawValue: 0))!
+        start = gregorian.dateByAddingComponents(dateComponents, toDate: start, options: NSCalendar.Options(rawValue: 0))!
         
         
     } while start != end
     
     //print(blankDict)
     
-    let sortedDict = blankDict.sort { $0.0.compare($1.0) == .OrderedAscending }
+    let sortedDict = blankDict.sorted { $0.0.compare($1.0) == .orderedAscending }
     
     
     var arrYear: [Float] = []
@@ -75,7 +75,7 @@ var normalTMINLoaded = false
     
     for i in 0...30 {
     
-    arrMonth.insert(2, atIndex: i)
+    arrMonth.insert(2, at: i)
     
     }
     
@@ -83,7 +83,7 @@ var normalTMINLoaded = false
     
     for i in 0...6 {
         
-        arrWeek.insert(2, atIndex: i)
+        arrWeek.insert(2, at: i)
         
     }
     
@@ -91,19 +91,19 @@ var normalTMINLoaded = false
    // print("arrMonth \(arrMonth)")
    // print("arrWeek \(arrWeek)")
     
-    var precipCalc:[NSDate : Float] = [:]
+    var precipCalc:[Foundation.Date : Float] = [:]
     var startMinusOne = Date.normalStartMath(today)
    
     
     // changes end date to Jan 1 of the next year so loop will complete all 365 values
-    let endDateComponents = NSDateComponents()
+    var endDateComponents = DateComponents()
     endDateComponents.day = 1
-    end = gregorian.dateByAddingComponents(endDateComponents, toDate: end, options: NSCalendarOptions(rawValue: 0))!
+    end = gregorian.dateByAddingComponents(endDateComponents, toDate: end, options: NSCalendar.Options(rawValue: 0))!
     
     //changes startMinusOne date so that it can be used to add values cumulatively
-    let startMinusOneDateComponents = NSDateComponents()
+    var startMinusOneDateComponents = DateComponents()
     startMinusOneDateComponents.day = -1
-    startMinusOne = gregorian.dateByAddingComponents(startMinusOneDateComponents, toDate: startMinusOne, options: NSCalendarOptions(rawValue: 0))!
+    startMinusOne = gregorian.dateByAddingComponents(startMinusOneDateComponents, toDate: startMinusOne, options: NSCalendar.Options(rawValue: 0))!
     
    /* repeat {
         

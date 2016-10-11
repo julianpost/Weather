@@ -15,25 +15,25 @@ import SwiftyJSON
 class ViewController: UIViewController {
     
     //var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    let today = NSDate()
+    let today = Foundation.Date()
     
     @IBOutlet weak var tempView: UIView!
     
-    @IBAction func checkDegs(sender: AnyObject) {
+    @IBAction func checkDegs(_ sender: AnyObject) {
         print(mainWeatherData.degreeDayCumulativeNormal)
     }
     
-    @IBAction func setNeedsDisplay(sender: AnyObject) {
+    @IBAction func setNeedsDisplay(_ sender: AnyObject) {
         
         // precipView.setNeedsDisplay()
         // print("button was pressed \(mainWeatherData.lastYearPrecipDict)")
         UpdateView.drawChart(tempView, current: mainWeatherData.degreeDayCumulativeThisYear, normal: mainWeatherData.degreeDayCumulativeNormal)
     }
     
-    @IBAction func dismissView(sender: AnyObject) {
+    @IBAction func dismissView(_ sender: AnyObject) {
         
         // Dismiss View Controller
-        navigationController?.popViewControllerAnimated(true)
+        navigationController?.popViewController(animated: true)
         
     }
     

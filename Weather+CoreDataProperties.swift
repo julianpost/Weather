@@ -15,7 +15,7 @@ import CoreData
 extension Weather {
 
     @NSManaged var dataSetID: String?
-    @NSManaged var date: NSDate?
+    @NSManaged var date: Foundation.Date?
     @NSManaged var precip: NSNumber?
     @NSManaged var temperatureMax: NSNumber?
     @NSManaged var temperatureMin: NSNumber?

@@ -17,7 +17,7 @@ import SwiftyJSON
 
 class CallNOAA {
 
-    static func requestWeather(startDate: String, endDate: String, dataSet: String, dataType: String, completionHandler: [NSDate:Float] -> ()) {
+    static func requestWeather(_ startDate: String, endDate: String, dataSet: String, dataType: String, completionHandler: @escaping ([Foundation.Date:Float]) -> ()) {
         
         self.makeCall(startDate, endDate: endDate, dataSet: dataSet, dataType: dataType, completionHandler: completionHandler)
     
@@ -26,10 +26,10 @@ class CallNOAA {
 }
     
     
-    static func makeCall(startDate: String, endDate: String, dataSet: String, dataType: String, completionHandler: ([NSDate:Float]) -> ()) {
+    static func makeCall(_ startDate: String, endDate: String, dataSet: String, dataType: String, completionHandler: @escaping ([Foundation.Date:Float]) -> ()) {
     
         var array: [[String:AnyObject]] = [[:]]
-        var dict: [NSDate:Float] = [:]
+        var dict: [Foundation.Date:Float] = [:]
         
         
         let headers = [
@@ -47,15 +47,15 @@ class CallNOAA {
             
         ]
         
-        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+        let priority = DispatchQueue.GlobalQueuePriority.default
+        DispatchQueue.global(priority: priority).async {
            
         
         Alamofire.request(.GET,"https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=\(dataSet)&stationid=GHCND:USW00014742&units=standard", parameters: parameters, headers: headers)
             .validate(statusCode: 200..<300).responseJSON { (responseData) -> Void in
                 //debugPrint(responseData)
                 switch responseData.result {
-                case .Success:
+                case .success:
                     print("Validation Successful \(startDate)")
                     let swiftyJsonVar = JSON(responseData.result.value!)
                     //  print(swiftyJsonVar)
@@ -65,10 +65,10 @@ class CallNOAA {
                         //  print(arrayVar)
                         
                         for i in array {
-                            if let date = i["date"], value = i["value"] {
-                                let stringOfDate = String(date)
+                            if let date = i["date"], let value = i["value"] {
+                                let stringOfDate = "\(date)"
                                 let formattedDate = Date.stringToNSDate(stringOfDate)
-                                let stringOfValue = String(value)
+                                let stringOfValue = "\(value)"
                                 let floatOfValue = Float(stringOfValue)
                                 dict[formattedDate] = floatOfValue
                                 completionHandler(dict)
@@ -80,7 +80,7 @@ class CallNOAA {
                     }
                     
                     
-                case .Failure(let error):
+                case .failure(let error):
                     print(error)
                 }
                 
@@ -89,7 +89,7 @@ class CallNOAA {
                 
         }
 
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
             }
         }
     }

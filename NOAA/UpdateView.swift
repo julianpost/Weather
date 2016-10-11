@@ -15,7 +15,7 @@ class UpdateView {
     
 
     
-    static func drawChart(view: UIView, current: [Float], normal: [Float]) {
+    static func drawChart(_ view: UIView, current: [Float], normal: [Float]) {
         
        // super.drawRect(rect)
         
@@ -58,7 +58,7 @@ class UpdateView {
         //calculate the x point
         
         let margin:CGFloat = 20.0
-        var columnXPoint = { (column:Int) -> CGFloat in
+        let columnXPoint = { (column:Int) -> CGFloat in
             //Calculate gap between points
             let spacer = (width - margin*2 - 4) /
                 CGFloat((normal.count - 1))
@@ -72,8 +72,8 @@ class UpdateView {
         let topBorder:CGFloat = 60
         let bottomBorder:CGFloat = 50
         let graphHeight = height - topBorder - bottomBorder
-        let maxValue = normal.maxElement()!
-        var columnYPoint = { (graphPoint:Float) -> CGFloat in
+        let maxValue = normal.max()!
+        let columnYPoint = { (graphPoint:Float) -> CGFloat in
             var y:CGFloat = CGFloat(graphPoint) /
                 CGFloat(maxValue) * graphHeight
             y = graphHeight + topBorder - y // Flip the graph
@@ -85,8 +85,8 @@ class UpdateView {
        // UIColor.blackColor().setStroke()
         
         //set up the points line
-        var graphPath = UIBezierPath()
-        var graphPathTwo = UIBezierPath()
+        let graphPath = UIBezierPath()
+        let graphPathTwo = UIBezierPath()
         
         
         
@@ -94,10 +94,10 @@ class UpdateView {
         
         
         //go to start of line
-        graphPath.moveToPoint(CGPoint(x:columnXPoint(0),
+        graphPath.move(to: CGPoint(x:columnXPoint(0),
             y:columnYPoint(current[0])))
         
-        graphPathTwo.moveToPoint(CGPoint(x:columnXPoint(0),
+        graphPathTwo.move(to: CGPoint(x:columnXPoint(0),
             y:columnYPoint(normal[0])))
         
         //add points for each item in the arr array
@@ -106,7 +106,7 @@ class UpdateView {
             let nextPoint = CGPoint(x:columnXPoint(i),
                                     y:columnYPoint(current[i]))
             
-            graphPath.addLineToPoint(nextPoint)
+            graphPath.addLine(to: nextPoint)
         }
         
         for i in 1..<normal.count {
@@ -114,7 +114,7 @@ class UpdateView {
             let nextPointTwo = CGPoint(x:columnXPoint(i),
                                        y:columnYPoint(normal[i]))
             
-            graphPathTwo.addLineToPoint(nextPointTwo)
+            graphPathTwo.addLine(to: nextPointTwo)
         }
         
       //  graphPath.lineWidth = 2.0
@@ -128,14 +128,14 @@ class UpdateView {
         //layerTwo.position = CGPoint(x:columnXPoint(0),
           //                       y:columnYPoint(mainWeatherData.currentYearTemperatureMaxArray[0]))
         
-        layerOne.path = graphPath.CGPath
-        layerTwo.path = graphPathTwo.CGPath
+        layerOne.path = graphPath.cgPath
+        layerTwo.path = graphPathTwo.cgPath
 
         layerOne.lineWidth = 2.0
         layerTwo.lineWidth = 2.0
         
-        layerOne.strokeColor = UIColor.blackColor().CGColor
-        layerTwo.strokeColor = UIColor.blackColor().CGColor
+        layerOne.strokeColor = UIColor.black.cgColor
+        layerTwo.strokeColor = UIColor.black.cgColor
      
         layerOne.fillColor = nil
         layerTwo.fillColor = nil
@@ -146,14 +146,14 @@ class UpdateView {
         //self.layer.insertSublayer(layerTwo, atIndex: 0)
     }
     
-    static func handlePrecipCompletion(view: UIView) {
+    static func handlePrecipCompletion(_ view: UIView) {
         if mainWeatherData.currentPrecipLoaded && mainWeatherData.normalPrecipLoaded {
             
             UpdateView.drawChart(view, current: mainWeatherData.currentMonthPrecipArray, normal: mainWeatherData.normalMonthPrecipArray)
         }
     }
     
-    static func handleTempCompletion(view: UIView) {
+    static func handleTempCompletion(_ view: UIView) {
         if mainWeatherData.currentTMAXLoaded && mainWeatherData.normalTMAXLoaded && mainWeatherData.currentTMINLoaded && mainWeatherData.normalTMINLoaded {
             
           //  mainWeatherData.degreeDayCumulativeThisYear = TransformArray.toDegreeDay(52, maxTemp: 86, tMin: mainWeatherData.currentYearTemperatureMinArray, tMax: mainWeatherData.currentYearTemperatureMaxArray)

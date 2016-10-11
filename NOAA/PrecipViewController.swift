@@ -12,7 +12,7 @@ import UIKit
 class PrecipViewController: UIViewController {
     
     
-    @IBAction func setNeedsDisplay(sender: AnyObject) {
+    @IBAction func setNeedsDisplay(_ sender: AnyObject) {
         
        //precipView.setNeedsDisplay()
        // print("button was pressed \(mainWeatherData.lastYearPrecipDict)")

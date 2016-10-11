@@ -12,18 +12,18 @@ class FetchAllData {
     
     
     
-    static func precip(view: UIView) {
-        let today = NSDate()
-        let formatter = NSDateFormatter()
+    static func precip(_ view: UIView) {
+
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         
-        let currentYearStartDate = Date.currentYearStartMath(today)
-        let currentYearEndDate = Date.currentYearEndMath(today)
+        //let currentYearStartDate = dateFor.currentYearStart
+        //let currentYearEndDate = dateFor.currentYearEnd
         
-        let currentYearStartDateString = formatter.stringFromDate(currentYearStartDate)
-        let currentYearEndDateString = formatter.stringFromDate(currentYearEndDate)
+        //let currentYearStartDateString = formatter.string(from: dateFor.currentYearStart)
+        //let currentYearEndDateString = formatter.string(from: dateFor.currentYearEnd)
         
-        CallNOAA.requestWeather(currentYearStartDateString, endDate: currentYearEndDateString , dataSet: "GHCND", dataType: "PRCP") { responseObject in
+        CallNOAA.requestWeather(dateFor.stringOfCurrentYearStart, endDate: dateFor.stringOfCurrentYearEnd, dataSet: "GHCND", dataType: "PRCP") { responseObject in
             // use responseObject and error here
             mainWeatherData.currentYearPrecipDict = responseObject
             mainWeatherData.currentYearPrecipArray = TransformArray.toSimple(responseObject)
@@ -36,16 +36,16 @@ class FetchAllData {
         }
         
         
-        let normalStartDate = Date.normalStartMath(today)
-        let normalEndDate = Date.normalEndMath(today)
+        //let normalStartDate = dateFor.normalYearStart
+        //let normalEndDate = dateFor.normalYearEnd
         
         
-        let normalStartDateString = formatter.stringFromDate(normalStartDate)
-        let normalEndDateString = formatter.stringFromDate(normalEndDate)
+        //let normalStartDateString = formatter.string(from: dateFor.normalYearStart)
+        //let normalEndDateString = formatter.string(from: dateFor.normalYearEnd)
         
         
         
-        CallNOAA.requestWeather(normalStartDateString, endDate: normalEndDateString , dataSet: "NORMAL_DLY", dataType: "DLY-PRCP-NORMAL") { responseObject in
+        CallNOAA.requestWeather(dateFor.stringOfNormalYearStart, endDate: dateFor.stringOfNormalYearEnd , dataSet: "NORMAL_DLY", dataType: "DLY-PRCP-NORMAL") { responseObject in
             // use responseObject and error here
             mainWeatherData.normalPrecipDict = responseObject
             mainWeatherData.normalPrecipArray = TransformArray.toSimple(responseObject)
@@ -62,19 +62,19 @@ class FetchAllData {
         
     }
     
-    static func temp(view: UIView) {
-        let today = NSDate()
-        let formatter = NSDateFormatter()
+    static func temp(_ view: UIView) {
+       
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         
-        let currentYearStartDate = Date.currentYearStartMath(today)
-        let currentYearEndDate = Date.currentYearEndMath(today)
+        //let currentYearStartDate = dateFor.currentYearStart
+        //let currentYearEndDate = dateFor.currentYearEnd
         
-        let currentYearStartDateString = formatter.stringFromDate(currentYearStartDate)
-        let currentYearEndDateString = formatter.stringFromDate(currentYearEndDate)
+        //let currentYearStartDateString = formatter.string(from: dateFor.currentYearStart)
+        //let currentYearEndDateString = formatter.string(from: dateFor.currentYearEnd)
         
         
-        CallNOAA.requestWeather(currentYearStartDateString, endDate: currentYearEndDateString , dataSet: "GHCND", dataType: "TMAX") { responseObject in
+        CallNOAA.requestWeather(dateFor.stringOfCurrentYearStart, endDate: dateFor.stringOfCurrentYearEnd, dataSet: "GHCND", dataType: "TMAX") { responseObject in
             // use responseObject and error here
             mainWeatherData.currentYearTemperatureMaxDict = responseObject
             mainWeatherData.currentYearTemperatureMaxArray = TransformArray.toSimple(responseObject)
@@ -84,7 +84,7 @@ class FetchAllData {
             return
         }
         
-        CallNOAA.requestWeather(currentYearStartDateString, endDate: currentYearEndDateString , dataSet: "GHCND", dataType: "TMIN") { responseObject in
+        CallNOAA.requestWeather(dateFor.stringOfCurrentYearStart, endDate: dateFor.stringOfCurrentYearEnd, dataSet: "GHCND", dataType: "TMIN") { responseObject in
             // use responseObject and error here
             mainWeatherData.currentYearTemperatureMinDict = responseObject
             mainWeatherData.currentYearTemperatureMinArray = TransformArray.toSimple(responseObject)
@@ -95,14 +95,14 @@ class FetchAllData {
             return
         }
         
-        let normalStartDate = Date.normalStartMath(today)
-        let normalEndDate = Date.normalEndMath(today)
+        //let normalStartDate = dateFor.normalYearStart
+        //let normalEndDate = dateFor.normalYearEnd
         
-        let normalStartDateString = formatter.stringFromDate(normalStartDate)
-        let normalEndDateString = formatter.stringFromDate(normalEndDate)
+        //let normalStartDateString = formatter.string(from: dateFor.normalYearStart)
+        //let normalEndDateString = formatter.string(from: dateFor.normalYearEnd)
         
         
-        CallNOAA.requestWeather(normalStartDateString, endDate: normalEndDateString , dataSet: "NORMAL_DLY", dataType: "DLY-TMAX-NORMAL") { responseObject in
+        CallNOAA.requestWeather(dateFor.stringOfNormalYearStart, endDate: dateFor.stringOfNormalYearEnd, dataSet: "NORMAL_DLY", dataType: "DLY-TMAX-NORMAL") { responseObject in
             // use responseObject and error here
             mainWeatherData.normalTemperatureMaxDict = responseObject
             mainWeatherData.normalTemperatureMaxArray = TransformArray.toSimple(responseObject)
@@ -119,7 +119,7 @@ class FetchAllData {
             return
         }
         
-        CallNOAA.requestWeather(normalStartDateString, endDate: normalEndDateString , dataSet: "NORMAL_DLY", dataType: "DLY-TMIN-NORMAL") { responseObject in
+        CallNOAA.requestWeather(dateFor.stringOfNormalYearStart, endDate: dateFor.stringOfNormalYearEnd, dataSet: "NORMAL_DLY", dataType: "DLY-TMIN-NORMAL") { responseObject in
             // use responseObject and error here
             mainWeatherData.normalTemperatureMinDict = responseObject
             mainWeatherData.normalTemperatureMinArray = TransformArray.toSimple(responseObject)
