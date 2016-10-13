@@ -38,10 +38,10 @@ class FetchAllData {
             mainWeatherData.normalWeekPrecipArray = TransformArray.toNormalWeek(responseObject)
             mainWeatherData.normalPrecipLoaded = true
             UpdateView.handlePrecipCompletion(view)
-            print("normal \(mainWeatherData.normalPrecipArray)")
+            //print("normal \(mainWeatherData.normalPrecipArray)")
           
             
-            print("responseObject = \(responseObject)")
+            //print("responseObject = \(responseObject)")
             return
         }
         
@@ -103,7 +103,7 @@ class FetchAllData {
         var newArray: [Float]
         newArray = TransformArray.toDegreeDay(50.0, maxTemp: 86.0, tMin: mainWeatherData.normalTemperatureMinArray, tMax: mainWeatherData.normalTemperatureMaxArray)
         mainWeatherData.degreeDayCumulativeNormal = TransformArray.toCumulative(newArray)
-        print(mainWeatherData.degreeDayCumulativeNormal)
+        //print(mainWeatherData.degreeDayCumulativeNormal)
         
     }
     

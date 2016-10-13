@@ -69,11 +69,15 @@ class CallNOAA {
                                 let floatOfValue = Float(stringOfValue)
                                 dict[formattedDate] = floatOfValue
                                 completionHandler(dict)
-                                //print(dict)
                             }
-                            
-                            
                         }
+                        mainWeatherData.currentYearPrecipDict = dict
+                        mainWeatherData.currentYearPrecipArray = TransformArray.toSimple(dict)
+                        mainWeatherData.currentMonthPrecipArray = TransformArray.toCurrentMonth(dict)
+                        mainWeatherData.currentWeekPrecipArray = TransformArray.toCurrentWeek(dict)
+                        mainWeatherData.currentPrecipLoaded = true
+                        print(mainWeatherData.currentYearPrecipArray.count)
+                        //UpdateView.handlePrecipCompletion(view)
                     }
                     
                     
