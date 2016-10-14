@@ -20,14 +20,12 @@ class CallNOAA {
     static func requestWeather(_ startDate: String, endDate: String, dataSet: String, dataType: String, completionHandler: @escaping ([Foundation.Date:Float]) -> ()) {
         
         self.makeCall(startDate, endDate: endDate, dataSet: dataSet, dataType: dataType, completionHandler: completionHandler)
-    
         
-        
-}
+    }
     
     
     static func makeCall(_ startDate: String, endDate: String, dataSet: String, dataType: String, completionHandler: @escaping ([Foundation.Date:Float]) -> ()) {
-    
+        
         var array: [[String:AnyObject]] = [[:]]
         var dict: [Foundation.Date:Float] = [:]
         
@@ -40,17 +38,17 @@ class CallNOAA {
         let parameters = [
             
             "limit": "365",
-            //  "datasetid" : "NORMAL_DLY",
             "datatypeid": dataType,
             "startdate": startDate,
-            "enddate" : endDate
-            
+            "enddate" : endDate,
+            //"datasetid" : dataSet,
+            "stationid" : "GHCND:USW00014742"
         ]
         
         
-        Alamofire.request("https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=\(dataSet)&stationid=GHCND:USW00014742&units=standard", parameters: parameters, headers: headers)
+        Alamofire.request("https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=\(dataSet)", parameters: parameters, headers: headers)
             .validate(statusCode: 200..<300).responseJSON { (responseData) -> Void in
-                //debugPrint(responseData)
+                debugPrint(responseData)
                 switch responseData.result {
                 case .success:
                     print("Validation Successful \(startDate)")
@@ -68,15 +66,18 @@ class CallNOAA {
                                 let stringOfValue = "\(value)"
                                 let floatOfValue = Float(stringOfValue)
                                 dict[formattedDate] = floatOfValue
-                                completionHandler(dict)
+                                
                             }
                         }
-                        mainWeatherData.currentYearPrecipDict = dict
-                        mainWeatherData.currentYearPrecipArray = TransformArray.toSimple(dict)
-                        mainWeatherData.currentMonthPrecipArray = TransformArray.toCurrentMonth(dict)
-                        mainWeatherData.currentWeekPrecipArray = TransformArray.toCurrentWeek(dict)
-                        mainWeatherData.currentPrecipLoaded = true
-                        print(mainWeatherData.currentYearPrecipArray.count)
+                        
+                        completionHandler(dict)
+                        
+                        //currentYearDict = dict
+                        //mainWeatherData.currentYearPrecipArray = TransformArray.toSimple(dict)
+                        //mainWeatherData.currentMonthPrecipArray = TransformArray.toCurrentMonth(dict)
+                        //mainWeatherData.currentWeekPrecipArray = TransformArray.toCurrentWeek(dict)
+                        //mainWeatherData.currentPrecipLoaded = true
+                        //print(mainWeatherData.currentYearPrecipArray.count)
                         //UpdateView.handlePrecipCompletion(view)
                     }
                     

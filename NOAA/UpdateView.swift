@@ -17,22 +17,6 @@ class UpdateView {
     
     static func drawChart(_ view: UIView, current: [Float], normal: [Float]) {
         
-       // super.drawRect(rect)
-        
-       // makeArray()
-       // print(arr)
-       // print(mainWeatherData.lastYearTemperatureMaxArray)
-       
-     //   let today = NSDate()
-     //   let formatter = NSDateFormatter()
-     //   formatter.dateFormat = "yyyy-MM-dd"
-     //   let gregorian: NSCalendar! = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-        
-      //  let currentYearStartDate = Date.currentYearStartMath(today)
-      //  let currentYearEndDate = Date.currentYearEndMath(today)
-      //  let lastYearStartDate = Date.lastYearStartMath(today)
-      //  let lastYearEndDate = Date.lastYearEndMath(today)
-        
         let layerOne = CAShapeLayer()
         let layerTwo = CAShapeLayer()
         
@@ -147,9 +131,15 @@ class UpdateView {
     }
     
     static func handlePrecipCompletion(_ view: UIView) {
+        print("checking")
+        print(mainWeatherData.currentPrecipLoaded)
+        print(mainWeatherData.normalPrecipLoaded)
         if mainWeatherData.currentPrecipLoaded && mainWeatherData.normalPrecipLoaded {
             
-            UpdateView.drawChart(view, current: mainWeatherData.currentMonthPrecipArray, normal: mainWeatherData.normalMonthPrecipArray)
+            UpdateView.drawChart(view, current: mainWeatherData.precipCumulativeThisYear, normal: mainWeatherData.normalPrecipArray)
+            
+            print(mainWeatherData.precipCumulativeThisYear)
+            print(mainWeatherData.normalPrecipArray)
         }
     }
     

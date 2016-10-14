@@ -18,19 +18,23 @@ class FetchAllData {
         formatter.dateFormat = "yyyy-MM-dd"
         
         
-        CallNOAA.requestWeather(dateFor.stringOfCurrentYearStart, endDate: dateFor.stringOfCurrentYearEnd, dataSet: "GHCND", dataType: "PRCP") { responseObject in
+        CallNOAA.requestWeather(dateFor.stringOfCurrentYearStart, endDate: dateFor.stringOfCurrentYearEnd, dataSet: "GHCND", dataType: "PRCP")
+        { responseObject in
             // use responseObject and error here
+            //print(responseObject.count)
             mainWeatherData.currentYearPrecipDict = responseObject
-            mainWeatherData.currentYearPrecipArray = TransformArray.toSimple(responseObject)
-            mainWeatherData.currentMonthPrecipArray = TransformArray.toCurrentMonth(responseObject)
-            mainWeatherData.currentWeekPrecipArray = TransformArray.toCurrentWeek(responseObject)
+            mainWeatherData.currentYearPrecipArray = TransformArray.toSimple(mainWeatherData.currentYearPrecipDict)
+            mainWeatherData.precipCumulativeThisYear = TransformArray.toCumulative(mainWeatherData.currentYearPrecipArray)
+            mainWeatherData.currentMonthPrecipArray = TransformArray.toCurrentMonth(mainWeatherData.currentYearPrecipDict)
+            mainWeatherData.currentWeekPrecipArray = TransformArray.toCurrentWeek(mainWeatherData.currentYearPrecipDict)
             mainWeatherData.currentPrecipLoaded = true
             UpdateView.handlePrecipCompletion(view)
             
             return
         }
+            
         
-        CallNOAA.requestWeather(dateFor.stringOfNormalYearStart, endDate: dateFor.stringOfNormalYearEnd , dataSet: "NORMAL_DLY", dataType: "DLY-PRCP-NORMAL") { responseObject in
+        CallNOAA.requestWeather(dateFor.stringOfNormalYearStart, endDate: dateFor.stringOfNormalYearEnd , dataSet: "NORMAL_DLY", dataType: "YTD-PRCP-NORMAL") { responseObject in
             // use responseObject and error here
             mainWeatherData.normalPrecipDict = responseObject
             mainWeatherData.normalPrecipArray = TransformArray.toSimple(responseObject)
@@ -39,7 +43,7 @@ class FetchAllData {
             mainWeatherData.normalPrecipLoaded = true
             UpdateView.handlePrecipCompletion(view)
             //print("normal \(mainWeatherData.normalPrecipArray)")
-          
+            
             
             //print("responseObject = \(responseObject)")
             return
@@ -62,7 +66,7 @@ class FetchAllData {
 
             return
         }
-        
+ 
         CallNOAA.requestWeather(dateFor.stringOfCurrentYearStart, endDate: dateFor.stringOfCurrentYearEnd, dataSet: "GHCND", dataType: "TMIN") { responseObject in
             // use responseObject and error here
             mainWeatherData.currentYearTemperatureMinDict = responseObject
@@ -73,10 +77,11 @@ class FetchAllData {
  
             return
         }
-        
-        
+ 
+ 
         CallNOAA.requestWeather(dateFor.stringOfNormalYearStart, endDate: dateFor.stringOfNormalYearEnd, dataSet: "NORMAL_DLY", dataType: "DLY-TMAX-NORMAL") { responseObject in
             // use responseObject and error here
+            
             mainWeatherData.normalTemperatureMaxDict = responseObject
             mainWeatherData.normalTemperatureMaxArray = TransformArray.toSimple(responseObject)
             mainWeatherData.normalMonthTemperatureMaxArray = TransformArray.toNormalMonth(responseObject)
