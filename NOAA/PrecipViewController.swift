@@ -20,6 +20,14 @@ class PrecipViewController: UIViewController {
         
         FetchAllData.precip(precipView)
         
+        CallForLocations.requestLocations(dateFor.stringOfNormalYearStart, endDate: dateFor.stringOfNormalYearEnd, dataSet: "GHCND", dataType: "PRCP")  { responseObject in
+            // use responseObject and error here
+            print(responseObject)
+           
+            
+            return
+        }
+        
         //UpdateView.drawChart(self.precipView, current: mainWeatherData.currentMonthPrecipArray, normal: mainWeatherData.normalMonthPrecipArray)
         
     }

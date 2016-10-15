@@ -42,13 +42,14 @@ class CallNOAA {
             "startdate": startDate,
             "enddate" : endDate,
             //"datasetid" : dataSet,
-            "stationid" : "GHCND:USW00014742"
+            "stationid" : "GHCND:USW00014742",
+            "units" : "standard"
         ]
         
         
         Alamofire.request("https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=\(dataSet)", parameters: parameters, headers: headers)
             .validate(statusCode: 200..<300).responseJSON { (responseData) -> Void in
-                debugPrint(responseData)
+                //debugPrint(responseData)
                 switch responseData.result {
                 case .success:
                     print("Validation Successful \(startDate)")

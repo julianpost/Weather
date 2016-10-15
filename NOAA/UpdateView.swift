@@ -49,6 +49,7 @@ class UpdateView {
             var x:CGFloat = CGFloat(column) * spacer
             x += margin + 2
             return x
+            
         }
         
         // calculate the y point
@@ -57,6 +58,7 @@ class UpdateView {
         let bottomBorder:CGFloat = 50
         let graphHeight = height - topBorder - bottomBorder
         let maxValue = normal.max()!
+        
         let columnYPoint = { (graphPoint:Float) -> CGFloat in
             var y:CGFloat = CGFloat(graphPoint) /
                 CGFloat(maxValue) * graphHeight
@@ -131,28 +133,32 @@ class UpdateView {
     }
     
     static func handlePrecipCompletion(_ view: UIView) {
-        print("checking")
-        print(mainWeatherData.currentPrecipLoaded)
-        print(mainWeatherData.normalPrecipLoaded)
+        
+        //print("checking")
+        //print(mainWeatherData.currentPrecipLoaded)
+        //print(mainWeatherData.normalPrecipLoaded)
+        
         if mainWeatherData.currentPrecipLoaded && mainWeatherData.normalPrecipLoaded {
             
-            UpdateView.drawChart(view, current: mainWeatherData.precipCumulativeThisYear, normal: mainWeatherData.normalPrecipArray)
+            //UpdateView.drawChart(view, current: mainWeatherData.precipCumulativeThisYear, normal: mainWeatherData.normalPrecipArray)
+            UpdateView.drawChart(view, current: mainWeatherData.currentMonthPrecipArray, normal: mainWeatherData.normalMonthPrecipArray)
+            //print(mainWeatherData.currentYearPrecipDict, mainWeatherData.normalYearPrecipDict)
             
-            print(mainWeatherData.precipCumulativeThisYear)
-            print(mainWeatherData.normalPrecipArray)
         }
     }
     
     static func handleTempCompletion(_ view: UIView) {
         if mainWeatherData.currentTMAXLoaded && mainWeatherData.normalTMAXLoaded && mainWeatherData.currentTMINLoaded && mainWeatherData.normalTMINLoaded {
             
-          //  mainWeatherData.degreeDayCumulativeThisYear = TransformArray.toDegreeDay(52, maxTemp: 86, tMin: mainWeatherData.currentYearTemperatureMinArray, tMax: mainWeatherData.currentYearTemperatureMaxArray)
-         //   mainWeatherData.degreeDayCumulativeThisYear = TransformArray.toCumulative(mainWeatherData.degreeDayCumulativeThisYear)
+            mainWeatherData.currentYearDegreeDayCumulative = TransformArray.toDegreeDay(52, maxTemp: 86, tMin: mainWeatherData.currentYearTemperatureMinArray, tMax: mainWeatherData.currentYearTemperatureMaxArray)
+            mainWeatherData.currentYearDegreeDayCumulative = TransformArray.toCumulative(mainWeatherData.currentYearDegreeDayCumulative)
+            //print("Current\(mainWeatherData.degreeDayCumulativeThisYear)")
             
-         //   mainWeatherData.degreeDayCumulativeNormal = TransformArray.toDegreeDay(52, maxTemp: 86, tMin: mainWeatherData.normalTemperatureMinArray, tMax: mainWeatherData.normalTemperatureMaxArray)
-         //   mainWeatherData.degreeDayCumulativeNormal = TransformArray.toCumulative(mainWeatherData.degreeDayCumulativeThisYear)
+            mainWeatherData.normalYearDegreeDayCumulative = TransformArray.toDegreeDay(52, maxTemp: 86, tMin: mainWeatherData.normalYearTemperatureMinArray, tMax: mainWeatherData.normalYearTemperatureMaxArray)
+            mainWeatherData.normalYearDegreeDayCumulative = TransformArray.toCumulative(mainWeatherData.normalYearDegreeDayCumulative)
+            //print("Normal\(mainWeatherData.degreeDayCumulativeNormal)")
             
-            UpdateView.drawChart(view, current: mainWeatherData.currentYearTemperatureMinArray, normal: mainWeatherData.currentYearTemperatureMaxArray)
+           
         }
     }
 }

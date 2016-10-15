@@ -11,6 +11,9 @@
 		E800E9D91D48388300F3F8EC /* Weather+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E800E9D71D48388300F3F8EC /* Weather+CoreDataProperties.swift */; };
 		E800E9DA1D48388300F3F8EC /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = E800E9D81D48388300F3F8EC /* Weather.swift */; };
 		E805D8F41D735BEF00E58FCA /* ArrayCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805D8F31D735BEF00E58FCA /* ArrayCalculations.swift */; };
+		E806DAD11DB290F10092A53C /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E87B6BE21DAC731E00FF5C5C /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E806DAD21DB290F50092A53C /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E87B6BC91DAC72E800FF5C5C /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E806DAD41DB2AB0B0092A53C /* LocationFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E806DAD31DB2AB0B0092A53C /* LocationFinder.swift */; };
 		E816D4A21D5409C0005DA4D9 /* UpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E816D4A11D5409C0005DA4D9 /* UpdateView.swift */; };
 		E81D853B1D56546600187B94 /* PrecipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81D853A1D56546600187B94 /* PrecipViewController.swift */; };
 		E8541EDB1D4D613D00A4CC93 /* WeatherDataArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8541EDA1D4D613D00A4CC93 /* WeatherDataArrays.swift */; };
@@ -21,10 +24,26 @@
 		E868D20D1D45045D0093E4C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E868D20C1D45045D0093E4C0 /* Assets.xcassets */; };
 		E868D2101D45045D0093E4C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E868D20E1D45045D0093E4C0 /* LaunchScreen.storyboard */; };
 		E895960C1D89E210001F7DA6 /* FetchAllData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E895960B1D89E210001F7DA6 /* FetchAllData.swift */; };
+		E8BCEDE11DB28E2300D6A54F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E87B6BE21DAC731E00FF5C5C /* Alamofire.framework */; };
+		E8BCEDE21DB28E2900D6A54F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E87B6BC91DAC72E800FF5C5C /* SwiftyJSON.framework */; };
 		E8D80AB51D46DF9600C18ACD /* NOAARequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D80AB41D46DF9600C18ACD /* NOAARequests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E806DABE1DB290D80092A53C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E87B6BD61DAC731E00FF5C5C /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		E806DACF1DB290DD0092A53C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E87B6BBE1DAC72E800FF5C5C /* SwiftyJSON.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E4FEFDA19575BE100351305;
+			remoteInfo = "SwiftyJSON iOS";
+		};
 		E87B6BC81DAC72E800FF5C5C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E87B6BBE1DAC72E800FF5C5C /* SwiftyJSON.xcodeproj */;
@@ -132,6 +151,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				E806DAD21DB290F50092A53C /* SwiftyJSON.framework in Embed Frameworks */,
+				E806DAD11DB290F10092A53C /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +164,7 @@
 		E800E9D71D48388300F3F8EC /* Weather+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Weather+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E800E9D81D48388300F3F8EC /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		E805D8F31D735BEF00E58FCA /* ArrayCalculations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayCalculations.swift; sourceTree = "<group>"; };
+		E806DAD31DB2AB0B0092A53C /* LocationFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationFinder.swift; sourceTree = "<group>"; };
 		E816D4A11D5409C0005DA4D9 /* UpdateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateView.swift; sourceTree = "<group>"; };
 		E81D853A1D56546600187B94 /* PrecipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrecipViewController.swift; sourceTree = "<group>"; };
 		E8541EDA1D4D613D00A4CC93 /* WeatherDataArrays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDataArrays.swift; sourceTree = "<group>"; };
@@ -165,6 +187,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8BCEDE21DB28E2900D6A54F /* SwiftyJSON.framework in Frameworks */,
+				E8BCEDE11DB28E2300D6A54F /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +225,7 @@
 				E816D4A11D5409C0005DA4D9 /* UpdateView.swift */,
 				E805D8F31D735BEF00E58FCA /* ArrayCalculations.swift */,
 				E8D80AB41D46DF9600C18ACD /* NOAARequests.swift */,
+				E806DAD31DB2AB0B0092A53C /* LocationFinder.swift */,
 				E8541EDA1D4D613D00A4CC93 /* WeatherDataArrays.swift */,
 				E800E9C71D48290900F3F8EC /* DateHandler.swift */,
 				E868D2061D45045D0093E4C0 /* Main.storyboard */,
@@ -255,6 +280,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				E806DAD01DB290DD0092A53C /* PBXTargetDependency */,
+				E806DABF1DB290D80092A53C /* PBXTargetDependency */,
 			);
 			name = NOAA;
 			productName = NOAA;
@@ -273,6 +300,7 @@
 				TargetAttributes = {
 					E868D1FE1D45045D0093E4C0 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = J366ESWQGT;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -433,6 +461,7 @@
 				E81D853B1D56546600187B94 /* PrecipViewController.swift in Sources */,
 				E800E9D91D48388300F3F8EC /* Weather+CoreDataProperties.swift in Sources */,
 				E895960C1D89E210001F7DA6 /* FetchAllData.swift in Sources */,
+				E806DAD41DB2AB0B0092A53C /* LocationFinder.swift in Sources */,
 				E816D4A21D5409C0005DA4D9 /* UpdateView.swift in Sources */,
 				E868D2031D45045D0093E4C0 /* AppDelegate.swift in Sources */,
 				E8541EDB1D4D613D00A4CC93 /* WeatherDataArrays.swift in Sources */,
@@ -440,6 +469,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E806DABF1DB290D80092A53C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire iOS";
+			targetProxy = E806DABE1DB290D80092A53C /* PBXContainerItemProxy */;
+		};
+		E806DAD01DB290DD0092A53C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SwiftyJSON iOS";
+			targetProxy = E806DACF1DB290DD0092A53C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E868D2061D45045D0093E4C0 /* Main.storyboard */ = {
@@ -481,6 +523,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -528,6 +571,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -554,6 +598,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = J366ESWQGT;
 				INFOPLIST_FILE = NOAA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.NOAA;
@@ -567,6 +612,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = J366ESWQGT;
 				INFOPLIST_FILE = NOAA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.NOAA;
