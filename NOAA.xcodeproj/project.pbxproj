@@ -23,6 +23,8 @@
 		E868D20B1D45045D0093E4C0 /* NOAA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E868D2091D45045D0093E4C0 /* NOAA.xcdatamodeld */; };
 		E868D20D1D45045D0093E4C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E868D20C1D45045D0093E4C0 /* Assets.xcassets */; };
 		E868D2101D45045D0093E4C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E868D20E1D45045D0093E4C0 /* LaunchScreen.storyboard */; };
+		E8842C8D1DB3C55800C5A4A4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8842C8C1DB3C55800C5A4A4 /* SettingsViewController.swift */; };
+		E8842C9C1DB3C9C900C5A4A4 /* StationDataArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8842C9B1DB3C9C900C5A4A4 /* StationDataArrays.swift */; };
 		E895960C1D89E210001F7DA6 /* FetchAllData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E895960B1D89E210001F7DA6 /* FetchAllData.swift */; };
 		E8BCEDE11DB28E2300D6A54F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E87B6BE21DAC731E00FF5C5C /* Alamofire.framework */; };
 		E8BCEDE21DB28E2900D6A54F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E87B6BC91DAC72E800FF5C5C /* SwiftyJSON.framework */; };
@@ -178,6 +180,8 @@
 		E868D2111D45045D0093E4C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E87B6BBE1DAC72E800FF5C5C /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = "../../NOAA/SwiftyJSON-master/SwiftyJSON.xcodeproj"; sourceTree = "<group>"; };
 		E87B6BD61DAC731E00FF5C5C /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "../../NOAA/Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
+		E8842C8C1DB3C55800C5A4A4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E8842C9B1DB3C9C900C5A4A4 /* StationDataArrays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationDataArrays.swift; sourceTree = "<group>"; };
 		E895960B1D89E210001F7DA6 /* FetchAllData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchAllData.swift; sourceTree = "<group>"; };
 		E8D80AB41D46DF9600C18ACD /* NOAARequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NOAARequests.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -221,12 +225,14 @@
 				E868D2021D45045D0093E4C0 /* AppDelegate.swift */,
 				E81D853A1D56546600187B94 /* PrecipViewController.swift */,
 				E868D2041D45045D0093E4C0 /* TempViewController.swift */,
+				E8842C8C1DB3C55800C5A4A4 /* SettingsViewController.swift */,
 				E895960B1D89E210001F7DA6 /* FetchAllData.swift */,
 				E816D4A11D5409C0005DA4D9 /* UpdateView.swift */,
 				E805D8F31D735BEF00E58FCA /* ArrayCalculations.swift */,
 				E8D80AB41D46DF9600C18ACD /* NOAARequests.swift */,
 				E806DAD31DB2AB0B0092A53C /* LocationFinder.swift */,
 				E8541EDA1D4D613D00A4CC93 /* WeatherDataArrays.swift */,
+				E8842C9B1DB3C9C900C5A4A4 /* StationDataArrays.swift */,
 				E800E9C71D48290900F3F8EC /* DateHandler.swift */,
 				E868D2061D45045D0093E4C0 /* Main.storyboard */,
 				E868D20C1D45045D0093E4C0 /* Assets.xcassets */,
@@ -456,11 +462,13 @@
 				E868D20B1D45045D0093E4C0 /* NOAA.xcdatamodeld in Sources */,
 				E800E9C81D48290900F3F8EC /* DateHandler.swift in Sources */,
 				E868D2051D45045D0093E4C0 /* TempViewController.swift in Sources */,
+				E8842C9C1DB3C9C900C5A4A4 /* StationDataArrays.swift in Sources */,
 				E805D8F41D735BEF00E58FCA /* ArrayCalculations.swift in Sources */,
 				E800E9DA1D48388300F3F8EC /* Weather.swift in Sources */,
 				E81D853B1D56546600187B94 /* PrecipViewController.swift in Sources */,
 				E800E9D91D48388300F3F8EC /* Weather+CoreDataProperties.swift in Sources */,
 				E895960C1D89E210001F7DA6 /* FetchAllData.swift in Sources */,
+				E8842C8D1DB3C55800C5A4A4 /* SettingsViewController.swift in Sources */,
 				E806DAD41DB2AB0B0092A53C /* LocationFinder.swift in Sources */,
 				E816D4A21D5409C0005DA4D9 /* UpdateView.swift in Sources */,
 				E868D2031D45045D0093E4C0 /* AppDelegate.swift in Sources */,

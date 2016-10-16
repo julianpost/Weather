@@ -42,7 +42,7 @@ class CallNOAA {
             "startdate": startDate,
             "enddate" : endDate,
             //"datasetid" : dataSet,
-            "stationid" : "GHCND:USW00014742",
+            "stationid" : mainStationData.currentStation,
             "units" : "standard"
         ]
         
