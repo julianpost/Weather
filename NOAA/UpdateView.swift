@@ -132,7 +132,7 @@ class UpdateView {
         //self.layer.insertSublayer(layerTwo, atIndex: 0)
     }
     
-    static func handlePrecipCompletion(_ view: UIView) {
+    static func handlePrecipCompletion(_ viewOne: UIView, viewTwo: UIView, viewThree: UIView) {
         
         //print("checking")
         //print(mainWeatherData.currentPrecipLoaded)
@@ -140,8 +140,8 @@ class UpdateView {
         
         if mainWeatherData.currentPrecipLoaded && mainWeatherData.normalPrecipLoaded {
             
-            UpdateView.drawChart(view, current: mainWeatherData.normalYearPrecipCumulative, normal: mainWeatherData.normalYearPrecipArray)
-            UpdateView.drawChart(view, current: mainWeatherData.currentMonthPrecipArray, normal: mainWeatherData.normalMonthPrecipArray)
+            UpdateView.drawChart(viewThree, current: mainWeatherData.currentYearPrecipCumulative, normal: mainWeatherData.normalYearPrecipArray)
+            UpdateView.drawChart(viewTwo, current: mainWeatherData.currentMonthPrecipArray, normal: mainWeatherData.normalMonthPrecipArray)
             
         }
     }

@@ -65,7 +65,6 @@
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rg9-AK-uaR">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="1ec-4V-94n"/>
                                     <constraint firstAttribute="height" constant="28" id="jFa-h0-YQO"/>
                                 </constraints>
                                 <segments>
@@ -80,13 +79,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="rg9-AK-uaR" secondAttribute="trailing" constant="5" id="2fO-Gq-Vlh"/>
                             <constraint firstItem="MQW-zb-DjJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="200" id="8jS-s8-u4R"/>
                             <constraint firstItem="aCE-SS-dCt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="Btz-2g-2nM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aCE-SS-dCt" secondAttribute="trailing" constant="5" id="HpW-LI-ghh"/>
                             <constraint firstItem="jpc-qM-SqH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="JqK-Uv-emO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jpc-qM-SqH" secondAttribute="trailing" constant="5" id="Lh6-xk-bw2"/>
+                            <constraint firstItem="rg9-AK-uaR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="MFr-ay-MVE"/>
                             <constraint firstItem="jpc-qM-SqH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="WZb-4e-ATH"/>
-                            <constraint firstItem="rg9-AK-uaR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZYI-ur-GFW"/>
                             <constraint firstItem="MQW-zb-DjJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="21" id="aEJ-Bq-c29"/>
                             <constraint firstItem="jpc-qM-SqH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="200" id="b8Y-TL-BLO"/>
                             <constraint firstItem="rg9-AK-uaR" firstAttribute="top" secondItem="jpc-qM-SqH" secondAttribute="bottom" constant="45" id="bpe-39-PUf"/>
@@ -384,6 +384,34 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBc-J5-h6g">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="EZp-b6-QSf"/>
+                                    <constraint firstAttribute="height" constant="300" id="YnY-sB-k5U"/>
+                                    <constraint firstAttribute="width" secondItem="bBc-J5-h6g" secondAttribute="height" multiplier="1:1" id="cJ5-h3-3An"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="cJ5-h3-3An"/>
+                                        <exclude reference="YnY-sB-k5U"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XBd-qs-zGA">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="190-ot-lfJ"/>
+                                    <constraint firstAttribute="height" constant="300" id="Ghg-3O-Wdo"/>
+                                    <constraint firstAttribute="width" secondItem="XBd-qs-zGA" secondAttribute="height" multiplier="1:1" id="UdA-Gb-pxC"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="UdA-Gb-pxC"/>
+                                        <exclude reference="Ghg-3O-Wdo"/>
+                                    </mask>
+                                </variation>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O57-KX-J4z">
                                 <frame key="frameInset" minX="293" minY="629" width="66" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -392,26 +420,34 @@
                                     <segue destination="Fsj-5g-4cU" kind="show" id="7dc-Pm-Ajf"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="e9Y-33-kjg">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="xiy-Dg-7BE"/>
-                                </constraints>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="e9Y-33-kjg">
                                 <segments>
                                     <segment title="Week"/>
                                     <segment title="Month"/>
                                     <segment title="Year"/>
                                 </segments>
+                                <connections>
+                                    <action selector="indexChanged:" destination="svj-nG-4Tq" eventType="valueChanged" id="nGE-80-5tE"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="XBd-qs-zGA" firstAttribute="top" secondItem="VJg-WK-wwm" secondAttribute="top" constant="200" id="1K8-X7-pnj"/>
+                            <constraint firstItem="bBc-J5-h6g" firstAttribute="top" secondItem="VJg-WK-wwm" secondAttribute="top" constant="200" id="4M6-co-kgP"/>
                             <constraint firstItem="e9Y-33-kjg" firstAttribute="top" secondItem="f6X-4Y-Cst" secondAttribute="bottom" constant="45" id="6k5-wj-YNb"/>
-                            <constraint firstItem="VM3-58-S0K" firstAttribute="top" secondItem="e9Y-33-kjg" secondAttribute="bottom" constant="130" id="DxM-Lp-3TU"/>
+                            <constraint firstItem="bBc-J5-h6g" firstAttribute="leading" secondItem="VJg-WK-wwm" secondAttribute="leading" constant="21" id="Nc0-2B-whh"/>
                             <constraint firstItem="f6X-4Y-Cst" firstAttribute="centerY" secondItem="VJg-WK-wwm" secondAttribute="centerY" id="NmR-UX-rS4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="e9Y-33-kjg" secondAttribute="trailing" constant="5" id="Udz-X8-Q3Q"/>
+                            <constraint firstItem="e9Y-33-kjg" firstAttribute="top" secondItem="XBd-qs-zGA" secondAttribute="bottom" constant="45" id="Ujr-eC-lhg"/>
+                            <constraint firstItem="e9Y-33-kjg" firstAttribute="leading" secondItem="VJg-WK-wwm" secondAttribute="leadingMargin" constant="5" id="Vpd-Sg-xRv"/>
+                            <constraint firstItem="XBd-qs-zGA" firstAttribute="leading" secondItem="VJg-WK-wwm" secondAttribute="leading" constant="21" id="aOs-Rj-sOK"/>
+                            <constraint firstAttribute="trailing" secondItem="bBc-J5-h6g" secondAttribute="trailing" constant="21" id="bFA-xF-idD"/>
+                            <constraint firstItem="f6X-4Y-Cst" firstAttribute="top" secondItem="VJg-WK-wwm" secondAttribute="topMargin" constant="200" id="cp8-TM-q2J"/>
                             <constraint firstAttribute="trailingMargin" secondItem="f6X-4Y-Cst" secondAttribute="trailing" constant="5" id="e1m-p0-ES7"/>
-                            <constraint firstItem="e9Y-33-kjg" firstAttribute="centerX" secondItem="VJg-WK-wwm" secondAttribute="centerX" id="pv0-ea-Ugp"/>
+                            <constraint firstItem="e9Y-33-kjg" firstAttribute="top" secondItem="bBc-J5-h6g" secondAttribute="bottom" constant="45" id="eOd-ns-TvY"/>
                             <constraint firstItem="f6X-4Y-Cst" firstAttribute="leading" secondItem="VJg-WK-wwm" secondAttribute="leadingMargin" constant="5" id="qXB-Nw-y56"/>
-                            <constraint firstItem="f6X-4Y-Cst" firstAttribute="top" secondItem="Hp0-jr-mf7" secondAttribute="bottom" constant="100" id="zch-NX-M0U"/>
+                            <constraint firstAttribute="trailing" secondItem="XBd-qs-zGA" secondAttribute="trailing" constant="21" id="ubE-Fd-SOE"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -427,7 +463,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="precipView" destination="f6X-4Y-Cst" id="bfC-Rv-0uK"/>
+                        <outlet property="precipViewOne" destination="f6X-4Y-Cst" id="T7l-Wd-tjf"/>
+                        <outlet property="precipViewThree" destination="XBd-qs-zGA" id="pWk-1o-ZTL"/>
+                        <outlet property="precipViewTwo" destination="bBc-J5-h6g" id="RYJ-3p-vp9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGX-2T-rE3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -454,6 +492,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="RbH-Lj-bco"/>
+        <segue reference="7dc-Pm-Ajf"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,7 +12,7 @@ class FetchAllData {
     
     
     
-    static func precip(_ view: UIView) {
+    static func precip(_ viewOne: UIView, viewTwo: UIView, viewThree: UIView) {
 
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -28,7 +28,7 @@ class FetchAllData {
             mainWeatherData.currentMonthPrecipArray = TransformArray.toCurrentMonth(mainWeatherData.currentYearPrecipDict)
             mainWeatherData.currentWeekPrecipArray = TransformArray.toCurrentWeek(mainWeatherData.currentYearPrecipDict)
             mainWeatherData.currentPrecipLoaded = true
-            UpdateView.handlePrecipCompletion(view)
+            UpdateView.handlePrecipCompletion(viewOne, viewTwo: viewTwo, viewThree: viewThree)
             
             return
         }
@@ -41,7 +41,7 @@ class FetchAllData {
             mainWeatherData.normalMonthPrecipArray = TransformArray.toNormalMonth(responseObject)
             mainWeatherData.normalWeekPrecipArray = TransformArray.toNormalWeek(responseObject)
             mainWeatherData.normalPrecipLoaded = true
-            UpdateView.handlePrecipCompletion(view)
+            UpdateView.handlePrecipCompletion(viewOne, viewTwo: viewTwo, viewThree: viewThree)
             //print("normal \(mainWeatherData.normalPrecipArray)")
             
             
