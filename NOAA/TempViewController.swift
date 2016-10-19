@@ -10,7 +10,35 @@ import UIKit
 
 class TempViewController: UIViewController {
     
-    @IBOutlet weak var tempView: UIView!
+    @IBOutlet weak var tempViewOne: UIView!
+    @IBOutlet weak var tempViewTwo: UIView!
+    @IBOutlet weak var tempViewThree: UIView!
+    
+    
+    @IBAction func indexChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex
+        {
+        case 0:
+            tempViewOne.layer.isHidden = false
+            tempViewTwo.layer.isHidden = true
+            tempViewThree.layer.isHidden = true
+        
+        case 1:
+            tempViewOne.layer.isHidden = true
+            tempViewTwo.layer.isHidden = false
+            tempViewThree.layer.isHidden = true
+            
+        case 2:
+            tempViewOne.layer.isHidden = true
+            tempViewTwo.layer.isHidden = true
+            tempViewThree.layer.isHidden = false
+            
+        default:
+            tempViewOne.layer.isHidden = false
+            tempViewTwo.layer.isHidden = true
+            tempViewThree.layer.isHidden = true
+        }
+    }
     
     
     @IBAction func dismissView(_ sender: AnyObject) {
@@ -23,7 +51,7 @@ class TempViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        FetchAllData.temp(tempView)
+        FetchAllData.temp(tempViewOne, viewTwo: tempViewTwo, viewThree: tempViewThree)
         
         
     }

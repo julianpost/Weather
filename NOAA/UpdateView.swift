@@ -146,7 +146,7 @@ class UpdateView {
         }
     }
     
-    static func handleTempCompletion(_ view: UIView) {
+    static func handleTempCompletion(_ viewOne: UIView, viewTwo: UIView, viewThree: UIView) {
         if mainWeatherData.currentTMAXLoaded && mainWeatherData.normalTMAXLoaded && mainWeatherData.currentTMINLoaded && mainWeatherData.normalTMINLoaded {
             
             mainWeatherData.currentYearDegreeDayOneCumulative = TransformArray.toDegreeDay(mainSettingsData.minTempOne, maxTemp: mainSettingsData.maxTempOne, tMin: mainWeatherData.currentYearTemperatureMinArray, tMax: mainWeatherData.currentYearTemperatureMaxArray)
@@ -156,7 +156,7 @@ class UpdateView {
             mainWeatherData.normalYearDegreeDayOneCumulative = TransformArray.toDegreeDay(mainSettingsData.minTempOne, maxTemp: mainSettingsData.maxTempOne, tMin: mainWeatherData.normalYearTemperatureMinArray, tMax: mainWeatherData.normalYearTemperatureMaxArray)
             mainWeatherData.normalYearDegreeDayOneCumulative = TransformArray.toCumulative(mainWeatherData.normalYearDegreeDayOneCumulative)
             
-            UpdateView.drawChart(view, current: mainWeatherData.currentYearDegreeDayOneCumulative, normal: mainWeatherData.normalYearDegreeDayOneCumulative)
+            UpdateView.drawChart(viewOne, current: mainWeatherData.currentYearDegreeDayOneCumulative, normal: mainWeatherData.normalYearDegreeDayOneCumulative)
             
             mainWeatherData.currentYearDegreeDayTwoCumulative = TransformArray.toDegreeDay(mainSettingsData.minTempTwo, maxTemp: mainSettingsData.maxTempTwo, tMin: mainWeatherData.currentYearTemperatureMinArray, tMax: mainWeatherData.currentYearTemperatureMaxArray)
             
@@ -165,7 +165,7 @@ class UpdateView {
             mainWeatherData.normalYearDegreeDayTwoCumulative = TransformArray.toDegreeDay(mainSettingsData.minTempTwo, maxTemp: mainSettingsData.maxTempTwo, tMin: mainWeatherData.normalYearTemperatureMinArray, tMax: mainWeatherData.normalYearTemperatureMaxArray)
             mainWeatherData.normalYearDegreeDayTwoCumulative = TransformArray.toCumulative(mainWeatherData.normalYearDegreeDayTwoCumulative)
             
-            UpdateView.drawChart(view, current: mainWeatherData.currentYearDegreeDayTwoCumulative, normal: mainWeatherData.normalYearDegreeDayTwoCumulative)
+            UpdateView.drawChart(viewTwo, current: mainWeatherData.currentYearDegreeDayTwoCumulative, normal: mainWeatherData.normalYearDegreeDayTwoCumulative)
             
             mainWeatherData.currentYearDegreeDayThreeCumulative = TransformArray.toDegreeDay(mainSettingsData.minTempThree, maxTemp: mainSettingsData.maxTempThree, tMin: mainWeatherData.currentYearTemperatureMinArray, tMax: mainWeatherData.currentYearTemperatureMaxArray)
             
@@ -174,7 +174,7 @@ class UpdateView {
             mainWeatherData.normalYearDegreeDayThreeCumulative = TransformArray.toDegreeDay(mainSettingsData.minTempThree, maxTemp: mainSettingsData.maxTempThree, tMin: mainWeatherData.normalYearTemperatureMinArray, tMax: mainWeatherData.normalYearTemperatureMaxArray)
             mainWeatherData.normalYearDegreeDayThreeCumulative = TransformArray.toCumulative(mainWeatherData.normalYearDegreeDayThreeCumulative)
             
-            UpdateView.drawChart(view, current: mainWeatherData.currentYearDegreeDayThreeCumulative, normal: mainWeatherData.normalYearDegreeDayThreeCumulative)
+            UpdateView.drawChart(viewThree, current: mainWeatherData.currentYearDegreeDayThreeCumulative, normal: mainWeatherData.normalYearDegreeDayThreeCumulative)
             
            
         }

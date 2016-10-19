@@ -51,7 +51,7 @@ class FetchAllData {
         
     }
     
-    static func temp(_ view: UIView) {
+    static func temp(_ viewOne: UIView, viewTwo: UIView, viewThree: UIView) {
        
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -62,7 +62,7 @@ class FetchAllData {
             mainWeatherData.currentYearTemperatureMaxDict = responseObject
             mainWeatherData.currentYearTemperatureMaxArray = TransformArray.toSimple(responseObject)
             mainWeatherData.currentTMAXLoaded = true
-            UpdateView.handleTempCompletion(view)
+            UpdateView.handleTempCompletion(viewOne, viewTwo: viewTwo, viewThree: viewThree)
             //print("CurrentMax\(mainWeatherData.currentYearTemperatureMaxArray)")
 
             return
@@ -73,7 +73,7 @@ class FetchAllData {
             mainWeatherData.currentYearTemperatureMinDict = responseObject
             mainWeatherData.currentYearTemperatureMinArray = TransformArray.toSimple(responseObject)
             mainWeatherData.currentTMINLoaded = true
-            UpdateView.handleTempCompletion(view)
+            UpdateView.handleTempCompletion(viewOne, viewTwo: viewTwo, viewThree: viewThree)
             //print("CurrentMin\(mainWeatherData.currentYearTemperatureMinArray)")
  
             return
@@ -88,7 +88,7 @@ class FetchAllData {
             mainWeatherData.normalMonthTemperatureMaxArray = TransformArray.toNormalMonth(responseObject)
             mainWeatherData.normalWeekTemperatureMaxArray = TransformArray.toNormalWeek(responseObject)
             mainWeatherData.normalTMAXLoaded = true
-            UpdateView.handleTempCompletion(view)
+            UpdateView.handleTempCompletion(viewOne, viewTwo: viewTwo, viewThree: viewThree)
             //print("NormalMax\(mainWeatherData.normalYearTemperatureMaxArray)")
 
             return
@@ -101,7 +101,7 @@ class FetchAllData {
             mainWeatherData.normalMonthTemperatureMinArray = TransformArray.toNormalMonth(responseObject)
             mainWeatherData.normalWeekTemperatureMinArray = TransformArray.toNormalWeek(responseObject)
             mainWeatherData.normalTMINLoaded = true
-            UpdateView.handleTempCompletion(view)
+            UpdateView.handleTempCompletion(viewOne, viewTwo: viewTwo, viewThree: viewThree)
             //print("NormalMin\(mainWeatherData.normalYearTemperatureMinArray)")
           
             return
