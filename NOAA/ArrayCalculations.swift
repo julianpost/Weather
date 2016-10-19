@@ -167,26 +167,29 @@ class TransformArray {
         return arr
     }
     
-    static func toDegreeDay(_ baseTemp: Float, maxTemp: Float, tMin: [Float], tMax: [Float]) -> [Float] {
+    static func toDegreeDay(_ baseTemp: Int, maxTemp: Int, tMin: [Float], tMax: [Float]) -> [Float] {
+        
+        let baseTempFloat = Float(baseTemp)
+        let maxTempFloat = Float(maxTemp)
         
         var degreeDay: [Float] = []
         
             for i in 0...tMin.count-1 {
         
-                if tMin[i] < baseTemp && tMax[i] > maxTemp {
-            degreeDay.append((baseTemp + maxTemp)/2 - baseTemp)
+                if tMin[i] < baseTempFloat && tMax[i] > maxTempFloat {
+            degreeDay.append((baseTempFloat + maxTempFloat)/2 - baseTempFloat)
                 }
             
-                else if tMin[i] < baseTemp {
-            degreeDay.append((baseTemp + tMax[i])/2 - baseTemp)
+                else if tMin[i] < baseTempFloat {
+            degreeDay.append((baseTempFloat + tMax[i])/2 - baseTempFloat)
                 }
             
-                else if tMax[i] > maxTemp {
-            degreeDay.append((tMin[i] + maxTemp)/2 - baseTemp)
+                else if tMax[i] > maxTempFloat {
+            degreeDay.append((tMin[i] + maxTempFloat)/2 - baseTempFloat)
                 }
             
                 else {
-            degreeDay.append((tMin[i] + tMax[i])/2 - baseTemp)
+            degreeDay.append((tMin[i] + tMax[i])/2 - baseTempFloat)
                 }
             
         }

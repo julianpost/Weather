@@ -107,12 +107,6 @@ class FetchAllData {
             return
         }
         
-        
-        var newArray: [Float]
-        newArray = TransformArray.toDegreeDay(50.0, maxTemp: 86.0, tMin: mainWeatherData.normalYearTemperatureMinArray, tMax: mainWeatherData.normalYearTemperatureMaxArray)
-        mainWeatherData.normalYearDegreeDayCumulative = TransformArray.toCumulative(newArray)
-        //print(mainWeatherData.degreeDayCumulativeNormal)
-        
     }
     
     

@@ -17,7 +17,7 @@ var currentMonthPrecipArray, currentMonthTemperatureMaxArray, currentMonthTemper
 
 var currentWeekPrecipArray, currentWeekTemperatureMaxArray, currentWeekTemperatureMinArray, normalWeekPrecipArray, normalWeekTemperatureMaxArray,normalWeekTemperatureMinArray: [Float]
     
-var normalYearPrecipCumulative, currentYearPrecipCumulative, normalYearDegreeDayCumulative, currentYearDegreeDayCumulative: [Float]
+var normalYearPrecipCumulative, currentYearPrecipCumulative, normalYearDegreeDayOneCumulative, currentYearDegreeDayOneCumulative, normalYearDegreeDayTwoCumulative, currentYearDegreeDayTwoCumulative, normalYearDegreeDayThreeCumulative, currentYearDegreeDayThreeCumulative: [Float]
     
 var currentYearPrecipDict, currentYearTemperatureMaxDict, currentYearTemperatureMinDict, normalYearPrecipDict, normalYearTemperatureMaxDict, normalYearTemperatureMinDict: [Date : Float]
     
@@ -126,8 +126,12 @@ var normalTMINLoaded = false
     
     self.normalYearPrecipCumulative = arrYear
     self.currentYearPrecipCumulative = arrYear
-    self.normalYearDegreeDayCumulative = arrYear
-    self.currentYearDegreeDayCumulative = arrYear
+    self.normalYearDegreeDayOneCumulative = arrYear
+    self.currentYearDegreeDayOneCumulative = arrYear
+    self.normalYearDegreeDayTwoCumulative = arrYear
+    self.currentYearDegreeDayTwoCumulative = arrYear
+    self.normalYearDegreeDayThreeCumulative = arrYear
+    self.currentYearDegreeDayThreeCumulative = arrYear
         
     self.currentPrecipLoaded = false
     self.normalPrecipLoaded = false

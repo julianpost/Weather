@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TempViewController.swift
 //  NOAA
 //
 //  Created by Julian Post on 7/24/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TempViewController: UIViewController {
     
     @IBOutlet weak var tempView: UIView!
     

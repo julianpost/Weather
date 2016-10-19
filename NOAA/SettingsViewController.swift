@@ -16,6 +16,54 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var zipField: UITextField!
     
+    @IBOutlet weak var minTempOne: UISlider!
+    @IBOutlet weak var maxTempOne: UISlider!
+    @IBOutlet weak var minTempTwo: UISlider!
+    @IBOutlet weak var maxTempTwo: UISlider!
+    @IBOutlet weak var minTempThree: UISlider!
+    @IBOutlet weak var maxTempThree: UISlider!
+    
+    @IBOutlet weak var minTempOneLbl: UILabel!
+    @IBOutlet weak var maxTempOneLbl: UILabel!
+    @IBOutlet weak var minTempTwoLbl: UILabel!
+    @IBOutlet weak var maxTempTwoLbl: UILabel!
+    @IBOutlet weak var minTempThreeLbl: UILabel!
+    @IBOutlet weak var maxTempThreeLbl: UILabel!
+    
+    
+    
+    @IBAction func minTempOneChanged() {
+        mainSettingsData.minTempOne = Int(minTempOne.value)
+        minTempOneLbl.text = "\(mainSettingsData.minTempOne)"
+    }
+    
+    @IBAction func maxTempOneChanged() {
+        mainSettingsData.maxTempOne = Int(maxTempOne.value)
+        maxTempOneLbl.text = "\(mainSettingsData.maxTempOne)"
+        
+    }
+    
+    @IBAction func minTempTwoChanged() {
+        mainSettingsData.minTempTwo = Int(minTempTwo.value)
+        minTempTwoLbl.text = "\(mainSettingsData.minTempTwo)"
+    }
+    
+    @IBAction func maxTempTwoChanged() {
+        mainSettingsData.maxTempTwo = Int(maxTempTwo.value)
+        maxTempTwoLbl.text = "\(mainSettingsData.maxTempTwo)"
+    }
+    
+    @IBAction func minTempThreeChanged() {
+        mainSettingsData.minTempThree = Int(minTempThree.value)
+        minTempThreeLbl.text = "\(mainSettingsData.minTempThree)"
+    }
+    
+    @IBAction func maxTempThreeChanged() {
+        mainSettingsData.maxTempThree = Int(maxTempThree.value)
+        maxTempThreeLbl.text = "\(mainSettingsData.maxTempThree)"
+    }
+    
+    
     @IBAction func zipFieldAction(_ sender: AnyObject) {
         loadListOfLocations()
         //tblResults.reloadData()
@@ -39,6 +87,24 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
        //tblResults.dataSource = self
         
         self.tblResults.register(UITableViewCell.self, forCellReuseIdentifier: "idCell")
+        
+        minTempOne.value = Float(mainSettingsData.minTempOne)
+        maxTempOne.value = Float(mainSettingsData.maxTempOne)
+        
+        minTempTwo.value = Float(mainSettingsData.minTempTwo)
+        maxTempTwo.value = Float(mainSettingsData.maxTempTwo)
+        
+        minTempThree.value = Float(mainSettingsData.minTempThree)
+        maxTempThree.value = Float(mainSettingsData.maxTempThree)
+        
+        minTempOneLbl.text = "\(mainSettingsData.minTempOne)"
+        maxTempOneLbl.text = "\(mainSettingsData.maxTempOne)"
+        
+        minTempTwoLbl.text = "\(mainSettingsData.minTempTwo)"
+        maxTempTwoLbl.text = "\(mainSettingsData.maxTempTwo)"
+        
+        minTempThreeLbl.text = "\(mainSettingsData.minTempThree)"
+        maxTempThreeLbl.text = "\(mainSettingsData.maxTempThree)"
     
         
         loadListOfLocations()
@@ -65,10 +131,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if shouldShowSearchResults {
-            return mainStationData.stationsArray.count
+            return mainSettingsData.stationsArray.count
         }
         else {
-            return mainStationData.stationsArray.count
+            return mainSettingsData.stationsArray.count
         }
     }
     
@@ -77,10 +143,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "idCell", for: indexPath)
         
         if shouldShowSearchResults {
-            cell.textLabel?.text = mainStationData.stationsArray[(indexPath as NSIndexPath).row]
+            cell.textLabel?.text = mainSettingsData.stationsArray[(indexPath as NSIndexPath).row]
         }
         else {
-            cell.textLabel?.text = mainStationData.stationsArray[(indexPath as NSIndexPath).row]
+            cell.textLabel?.text = mainSettingsData.stationsArray[(indexPath as NSIndexPath).row]
         }
         
         return cell
@@ -96,101 +162,16 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func loadListOfLocations() {
         
-       /* CallForLocations.requestLocations(dateFor.stringOfNormalYearStart, endDate: dateFor.stringOfNormalYearEnd, dataSet: "GHCND", dataType: "PRCP", zipCode: zipField.text ?? "")  { responseObject in
+        CallForLocations.requestLocations(dateFor.stringOfNormalYearStart, endDate: dateFor.stringOfNormalYearEnd, dataSet: "GHCND", dataType: "PRCP", zipCode: zipField.text ?? "")  { responseObject in
             // use responseObject and error here
             print(responseObject)
-            //mainStationData.stationsArray = responseObject
+            //mainSettingsData.stationsArray = responseObject
             
             
             return
-        }*/
-
-            
-           /* // Append the countries from the string to the dataArray array by breaking them using the line change character.
-            dataArray = countriesString.components(separatedBy: "\n")*/
-            
-            // Reload the tableview.
-          //  tblSearchResults.reloadData()
-        
-        print(mainStationData.stationsArray)
-        }
-    
-    
-    
-    // MARK: UISearchBarDelegate functions
-    
-  /*  func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        shouldShowSearchResults = true
-        tblSearchResults.reloadData()
-    }
-    
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        shouldShowSearchResults = false
-        tblSearchResults.reloadData()
-    }
-    
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if !shouldShowSearchResults {
-            shouldShowSearchResults = true
-            tblSearchResults.reloadData()
         }
         
-        searchController.searchBar.resignFirstResponder()
-    }*/
-    
-    
-    // MARK: UISearchResultsUpdating delegate function
-    
-   /* func updateSearchResults(for searchController: UISearchController) {
-        guard let searchString = searchController.searchBar.text else {
-            return
+        print(mainSettingsData.stationsArray)
+        
         }
-        
-        // Filter the data array and get only those countries that match the search text.
-        filteredArray = dataArray.filter({ (country) -> Bool in
-            let countryText:NSString = country as NSString
-            
-            return (countryText.range(of: searchString, options: NSString.CompareOptions.caseInsensitive).location) != NSNotFound
-        })
-        
-        // Reload the tableview.
-        tblSearchResults.reloadData()
-    }
-    
-    
-    // MARK: CustomSearchControllerDelegate functions
-    
-    func didStartSearching() {
-        shouldShowSearchResults = true
-        tblSearchResults.reloadData()
-    }
-    
-    
-    func didTapOnSearchButton() {
-        if !shouldShowSearchResults {
-            shouldShowSearchResults = true
-            tblSearchResults.reloadData()
-        }
-    }
-    
-    
-    func didTapOnCancelButton() {
-        shouldShowSearchResults = false
-        tblSearchResults.reloadData()
-    }
-    
-    
-    func didChangeSearchText(_ searchText: String) {
-        // Filter the data array and get only those countries that match the search text.
-        filteredArray = dataArray.filter({ (country) -> Bool in
-            let countryText: NSString = country as NSString
-            
-            return (countryText.range(of: searchText, options: NSString.CompareOptions.caseInsensitive).location) != NSNotFound
-        })
-        
-        // Reload the tableview.
-        tblSearchResults.reloadData()
-    } */
 }
