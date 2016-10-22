@@ -140,8 +140,10 @@ class UpdateView {
         
         if mainWeatherData.currentPrecipLoaded && mainWeatherData.normalPrecipLoaded {
             
-            UpdateView.drawChart(viewThree, current: mainWeatherData.currentYearPrecipCumulative, normal: mainWeatherData.normalYearPrecipArray)
+            UpdateView.drawChart(viewOne, current: mainWeatherData.currentWeekPrecipArray, normal: mainWeatherData.normalWeekPrecipArray)
             UpdateView.drawChart(viewTwo, current: mainWeatherData.currentMonthPrecipArray, normal: mainWeatherData.normalMonthPrecipArray)
+            UpdateView.drawChart(viewThree, current: mainWeatherData.currentYearPrecipCumulative, normal: mainWeatherData.normalYearPrecipArray)
+            
             
         }
     }

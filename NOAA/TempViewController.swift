@@ -53,6 +53,9 @@ class TempViewController: UIViewController {
         
         FetchAllData.temp(tempViewOne, viewTwo: tempViewTwo, viewThree: tempViewThree)
         
+        tempViewOne.layer.isHidden = false
+        tempViewTwo.layer.isHidden = true
+        tempViewThree.layer.isHidden = true
         
     }
     

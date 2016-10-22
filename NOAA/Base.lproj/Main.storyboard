@@ -142,7 +142,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XGm-7z-B74" id="bfO-rJ-V0p">
-                                            <frame key="frameInset" width="343" height="44"/>
+                                            <frame key="frameInset" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -150,7 +150,7 @@
                                         <rect key="frame" x="0.0" y="72" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Liy-KK-8g2" id="TYg-ep-7IW">
-                                            <frame key="frameInset" width="343" height="44"/>
+                                            <frame key="frameInset" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -158,7 +158,7 @@
                                         <rect key="frame" x="0.0" y="116" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ncW-6V-IhB" id="4Lz-eX-qSq">
-                                            <frame key="frameInset" width="343" height="44"/>
+                                            <frame key="frameInset" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -166,7 +166,7 @@
                                         <rect key="frame" x="0.0" y="160" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GPf-z6-y9G" id="HXl-l4-rj3">
-                                            <frame key="frameInset" width="343" height="44"/>
+                                            <frame key="frameInset" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -174,7 +174,7 @@
                                         <rect key="frame" x="0.0" y="204" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e5E-zC-1oM" id="NZj-Uh-wJb">
-                                            <frame key="frameInset" width="343" height="44"/>
+                                            <frame key="frameInset" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -197,6 +197,11 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="60" translatesAutoresizingMaskIntoConstraints="NO" id="H5m-uL-meu">
                                 <connections>
                                     <action selector="minTempTwoChanged" destination="Fsj-5g-4cU" eventType="valueChanged" id="9tf-xL-eIN"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="50" maxValue="120" translatesAutoresizingMaskIntoConstraints="NO" id="iFA-wC-eGP">
+                                <connections>
+                                    <action selector="maxTempTwoChanged" destination="Fsj-5g-4cU" eventType="valueChanged" id="06b-p1-DJC"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="60" translatesAutoresizingMaskIntoConstraints="NO" id="ufr-aC-88m">
@@ -224,11 +229,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="50" maxValue="120" translatesAutoresizingMaskIntoConstraints="NO" id="iFA-wC-eGP">
-                                <connections>
-                                    <action selector="maxTempTwoChanged" destination="Fsj-5g-4cU" eventType="valueChanged" id="06b-p1-DJC"/>
-                                </connections>
-                            </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Epz-4M-x1i">
                                 <frame key="frameInset" width="1000" height="1000"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -356,7 +356,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-479.19999999999999" y="834.33283358320841"/>
+            <point key="canvasLocation" x="-143" y="830"/>
         </scene>
         <!--Precip View Controller-->
         <scene sceneID="Ikb-ia-O08">
@@ -393,8 +393,8 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="cJ5-h3-3An"/>
                                         <exclude reference="YnY-sB-k5U"/>
+                                        <exclude reference="cJ5-h3-3An"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -407,8 +407,8 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="UdA-Gb-pxC"/>
                                         <exclude reference="Ghg-3O-Wdo"/>
+                                        <exclude reference="UdA-Gb-pxC"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -417,7 +417,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Settings"/>
                                 <connections>
-                                    <segue destination="Fsj-5g-4cU" kind="show" id="7dc-Pm-Ajf"/>
+                                    <segue destination="BmH-Ya-ciw" kind="show" id="md2-h1-oZC"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="e9Y-33-kjg">
@@ -472,6 +472,49 @@
             </objects>
             <point key="canvasLocation" x="-856.79999999999995" y="75.112443778110944"/>
         </scene>
+        <!--Location Finder View Controller-->
+        <scene sceneID="qhr-Vc-Q0I">
+            <objects>
+                <viewController id="BmH-Ya-ciw" customClass="LocationFinderViewController" customModule="NOAA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KwJ-bC-dWP"/>
+                        <viewControllerLayoutGuide type="bottom" id="rG4-NB-F6H"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hCF-EW-VHV" customClass="locationfinder">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ze-Z5-jMA">
+                                <frame key="frameInset" minX="166" minY="104" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiY-vm-XIP">
+                                <frame key="frameInset" minX="166" minY="140" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1V0-d5-GRM">
+                                <frame key="frameInset" minX="164" minY="185" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="addressLabel" destination="KiY-vm-XIP" id="bZS-bL-70j"/>
+                        <outlet property="nameLabel" destination="7ze-Z5-jMA" id="wER-aQ-Snj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GZ6-fB-6c5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-873" y="830"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="xtO-w9-Idp">
             <objects>
@@ -491,7 +534,4 @@
             <point key="canvasLocation" x="-1570" y="76"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="7dc-Pm-Ajf"/>
-    </inferredMetricsTieBreakers>
 </document>

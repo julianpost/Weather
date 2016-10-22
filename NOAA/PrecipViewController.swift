@@ -36,7 +36,7 @@ class PrecipViewController: UIViewController {
             precipViewThree.layer.isHidden = false
             
         default:
-            precipViewOne.layer.isHidden = false
+            precipViewOne.layer.isHidden = true
             precipViewTwo.layer.isHidden = true
             precipViewThree.layer.isHidden = true
         }
@@ -47,6 +47,10 @@ class PrecipViewController: UIViewController {
         super.viewDidLoad()
         
         FetchAllData.precip(precipViewOne, viewTwo: precipViewTwo, viewThree: precipViewThree)
+        
+        precipViewOne.layer.isHidden = true
+        precipViewTwo.layer.isHidden = true
+        precipViewThree.layer.isHidden = false
         
       /*  CallForLocations.requestLocationCategories(dateFor.stringOfNormalYearStart, endDate: dateFor.stringOfNormalYearEnd, dataSet: "GHCND", dataType: "PRCP")  { responseObject in
             // use responseObject and error here

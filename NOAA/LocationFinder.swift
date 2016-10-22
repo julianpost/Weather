@@ -9,8 +9,85 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import GooglePlaces
 
 class CallForLocations {
+    
+    
+    
+    static func makeGoogleCall(_ startDate: String, endDate: String, dataSet: String, dataType: String, zipCode: String, completionHandler: @escaping ([String]) -> ()) {
+        
+        
+        
+        let googleAPIKey = "AIzaSyA3Flb3HdA0EjlxVoxnEMUesGSBKhM6r_s"
+        var dict: [[String:AnyObject]] = [[:]]
+        var array: [String] = []
+        
+        
+        let headers = [
+            "token": "qMbhulVTJqFjFMUdHrwmhbxVyIIeqmOs"
+        ]
+        
+        
+        let parameters = [
+            
+            "limit": "20",
+            //"datatypeid": dataType,
+            //"datasetid" : "GHCND",
+            //"startdate": startDate,
+            //"enddate" : endDate,
+            //"locationcategoryid" : "ST",
+            //"sortfield" : "name",
+            //"sortorder" : "asc",
+            //"locationcategoryid" : "ZIP:\(zipCode)"
+            //"datasetid" : dataSet,
+        ]
+        
+        
+        Alamofire.request("https://www.googleapis.com/geolocation/v1/geolocate?key=\(googleAPIKey)", headers: headers)
+            .validate(statusCode: 200..<300).responseJSON { (responseData) -> Void in
+                debugPrint(responseData)
+                switch responseData.result {
+                case .success:
+                    print("Validation Successful \(startDate)")
+                    let swiftyJsonVar = JSON(responseData.result.value!)
+                    print(swiftyJsonVar)
+                    
+                    if let resData = swiftyJsonVar["results"].arrayObject {
+                        print(resData)
+                        dict = resData as! [[String:AnyObject]]
+                        //  print(arrayVar)
+                        print(dict)
+                        
+                        for i in dict {
+                            if let name = i["name"] {
+                                let stringOfName = "\(name)"
+                                print(stringOfName)
+                                array.append(stringOfName)
+                                
+                            }
+                        }
+                        print(array)
+                        completionHandler(array)
+                        
+                    }
+                    
+                    
+                case .failure(let error):
+                    print(error)
+                }
+                
+                
+                
+                
+        }
+        
+    }
+
+    
+    
+    
+    
     
     
     static func requestLocations(_ startDate: String, endDate: String, dataSet: String, dataType: String, zipCode: String, completionHandler: @escaping ([String]) -> ()) {
@@ -41,32 +118,35 @@ class CallForLocations {
             //"locationcategoryid" : "ST",
             //"sortfield" : "name",
             //"sortorder" : "asc",
-            "locationcategoryid" : "ZIP:\(zipCode)"
+            //"locationcategoryid" : "ZIP:\(zipCode)"
             //"datasetid" : dataSet,
         ]
         
         
-        Alamofire.request("https://www.ncdc.noaa.gov/cdo-web/api/v2/locations?", parameters: parameters, headers: headers)
+        Alamofire.request("https://www.ncdc.noaa.gov/cdo-web/api/v2/stations", headers: headers)
             .validate(statusCode: 200..<300).responseJSON { (responseData) -> Void in
                 debugPrint(responseData)
                 switch responseData.result {
                 case .success:
                     print("Validation Successful \(startDate)")
                     let swiftyJsonVar = JSON(responseData.result.value!)
-                    //  print(swiftyJsonVar)
+                      print(swiftyJsonVar)
                     
                     if let resData = swiftyJsonVar["results"].arrayObject {
+                        print(resData)
                         dict = resData as! [[String:AnyObject]]
                         //  print(arrayVar)
+                        print(dict)
                         
                         for i in dict {
                             if let name = i["name"] {
                                 let stringOfName = "\(name)"
+                                print(stringOfName)
                                 array.append(stringOfName)
                                 
                             }
                         }
-                        
+                        print(array)
                         completionHandler(array)
                         
                     }

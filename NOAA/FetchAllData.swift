@@ -25,8 +25,8 @@ class FetchAllData {
             mainWeatherData.currentYearPrecipDict = responseObject
             mainWeatherData.currentYearPrecipArray = TransformArray.toSimple(mainWeatherData.currentYearPrecipDict)
             mainWeatherData.currentYearPrecipCumulative = TransformArray.toCumulative(mainWeatherData.currentYearPrecipArray)
-            mainWeatherData.currentMonthPrecipArray = TransformArray.toCurrentMonth(mainWeatherData.currentYearPrecipDict)
-            mainWeatherData.currentWeekPrecipArray = TransformArray.toCurrentWeek(mainWeatherData.currentYearPrecipDict)
+            //mainWeatherData.currentMonthPrecipArray = TransformArray.toCurrentMonth(mainWeatherData.currentYearPrecipDict)
+            //mainWeatherData.currentWeekPrecipArray = TransformArray.toCurrentWeek(mainWeatherData.currentYearPrecipDict)
             mainWeatherData.currentPrecipLoaded = true
             UpdateView.handlePrecipCompletion(viewOne, viewTwo: viewTwo, viewThree: viewThree)
             
@@ -38,8 +38,8 @@ class FetchAllData {
             // use responseObject and error here
             mainWeatherData.normalYearPrecipDict = responseObject
             mainWeatherData.normalYearPrecipArray = TransformArray.toSimple(responseObject)
-            mainWeatherData.normalMonthPrecipArray = TransformArray.toNormalMonth(responseObject)
-            mainWeatherData.normalWeekPrecipArray = TransformArray.toNormalWeek(responseObject)
+            //mainWeatherData.normalMonthPrecipArray = TransformArray.toNormalMonth(responseObject)
+            //mainWeatherData.normalWeekPrecipArray = TransformArray.toNormalWeek(responseObject)
             mainWeatherData.normalPrecipLoaded = true
             UpdateView.handlePrecipCompletion(viewOne, viewTwo: viewTwo, viewThree: viewThree)
             //print("normal \(mainWeatherData.normalPrecipArray)")

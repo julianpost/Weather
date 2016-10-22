@@ -110,17 +110,17 @@ var normalTMINLoaded = false
     self.normalYearTemperatureMaxArray = arrYear
     self.normalYearTemperatureMinArray = arrYear
     
-    self.currentMonthPrecipArray = arrMonth
+    self.currentMonthPrecipArray = [2,5,6,7,8,9,5,6,7,5,4,3,2,3,4,7,8,9,4,3,2,1,5,6,7,6,6,6,4,3]
     self.currentMonthTemperatureMaxArray = arrMonth
     self.currentMonthTemperatureMinArray = arrMonth
-    self.normalMonthPrecipArray = arrMonth
+    self.normalMonthPrecipArray = [1,2,3,4,5,6,5,4,5,6,7,8,9,8,7,6,5,4,3,4,5,6,7,8,9,4,7,6,2,9]
     self.normalMonthTemperatureMaxArray = arrMonth
     self.normalMonthTemperatureMinArray = arrMonth
     
-    self.currentWeekPrecipArray = arrWeek
+    self.currentWeekPrecipArray = [2,5,6,7,8,9,5]
     self.currentWeekTemperatureMaxArray = arrWeek
     self.currentWeekTemperatureMinArray = arrWeek
-    self.normalWeekPrecipArray = arrWeek
+    self.normalWeekPrecipArray = [1,2,3,4,5,6,5]
     self.normalWeekTemperatureMaxArray = arrWeek
     self.normalWeekTemperatureMinArray = arrWeek
     

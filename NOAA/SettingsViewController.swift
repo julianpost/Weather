@@ -30,7 +30,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var minTempThreeLbl: UILabel!
     @IBOutlet weak var maxTempThreeLbl: UILabel!
     
-    
+    let rangeSlider1 = RangeSlider(frame: CGRect.zero)
+    let rangeSlider2 = RangeSlider(frame: CGRect.zero)
+    let rangeSlider3 = RangeSlider(frame: CGRect.zero)
     
     @IBAction func minTempOneChanged() {
         mainSettingsData.minTempOne = Int(minTempOne.value)
@@ -83,10 +85,35 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        view.addSubview(rangeSlider1)
+        view.addSubview(rangeSlider2)
+        view.addSubview(rangeSlider3)
+        
+        //rangeSlider1.addTarget(self, action: #selector(SettingsViewController.rangeSliderValueChanged(_:)), for: .valueChanged)
+
+        
        //tblResults.delegate = self
        //tblResults.dataSource = self
         
         self.tblResults.register(UITableViewCell.self, forCellReuseIdentifier: "idCell")
+        
+        //rangeSlider1.minimumValue = 0
+        //rangeSlider1.maximumValue = 120
+        
+        //rangeSlider2.minimumValue = 0
+        //rangeSlider2.maximumValue = 120
+        
+        //rangeSlider3.minimumValue = 0
+        //rangeSlider3.maximumValue = 120
+        
+        rangeSlider1.lowerValue = 52
+        rangeSlider1.upperValue = 86
+        
+        rangeSlider2.minimumValue = 0
+        rangeSlider2.maximumValue = 120
+        
+        rangeSlider3.minimumValue = 0
+        rangeSlider3.maximumValue = 120
         
         minTempOne.value = Float(mainSettingsData.minTempOne)
         maxTempOne.value = Float(mainSettingsData.maxTempOne)
@@ -119,6 +146,18 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+        let margin: CGFloat = 20.0
+        let width = view.bounds.width - 2.0 * margin
+        rangeSlider1.frame = CGRect(x: margin, y: margin + topLayoutGuide.length + 300,
+                                    width: width - 40, height: 20)
+        rangeSlider2.frame = CGRect(x: margin, y: margin + topLayoutGuide.length + 400,
+                                    width: width - 40, height: 20)
+        rangeSlider3.frame = CGRect(x: margin, y: margin + topLayoutGuide.length + 500,
+                                    width: width - 40, height: 20)
     }
     
     
@@ -164,7 +203,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         CallForLocations.requestLocations(dateFor.stringOfNormalYearStart, endDate: dateFor.stringOfNormalYearEnd, dataSet: "GHCND", dataType: "PRCP", zipCode: zipField.text ?? "")  { responseObject in
             // use responseObject and error here
-            print(responseObject)
+            print("response array\(responseObject)")
             //mainSettingsData.stationsArray = responseObject
             
             
@@ -174,4 +213,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         print(mainSettingsData.stationsArray)
         
         }
+    
+    func rangeSliderValueChanged(_ rangeSlider: RangeSlider) {
+        print("Range slider value changed: (\(rangeSlider.lowerValue) , \(rangeSlider.upperValue))")
+    }
+
 }
