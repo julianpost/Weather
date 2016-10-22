@@ -10,9 +10,10 @@ import Foundation
 import UIKit
 import GooglePlaces
 
-class LocationFinderViewController: UIViewController {
+class LocationFinderViewController: UIViewController, CLLocationManagerDelegate {
     
     var placesClient: GMSPlacesClient?
+    
     
     // Add a pair of UILabels in Interface Builder, and connect the outlets to these variables.
     @IBOutlet var nameLabel: UILabel!
@@ -20,13 +21,17 @@ class LocationFinderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         GMSPlacesClient.provideAPIKey("AIzaSyA3Flb3HdA0EjlxVoxnEMUesGSBKhM6r_s")
+        let locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
         placesClient = GMSPlacesClient.shared()
     }
     
     // Add a UIButton in Interface Builder, and connect the action to this function.
-    @IBAction func getCurrentPlace(sender: UIButton) {
-        
+    
+    @IBAction func getCurrentPlace(_ sender: UIButton) {
         placesClient?.currentPlace(callback: {
             (placeLikelihoodList: GMSPlaceLikelihoodList?, error: Error?) -> Void in
             if let error = error {
@@ -47,4 +52,5 @@ class LocationFinderViewController: UIViewController {
             }
         })
     }
-}
+
+   }

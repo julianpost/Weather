@@ -37,8 +37,8 @@
 		E84259181DBBC0B3000084F0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E84259171DBBC0B3000084F0 /* QuartzCore.framework */; };
 		E842591A1DBBC0BD000084F0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E84259191DBBC0BD000084F0 /* SystemConfiguration.framework */; };
 		E842591C1DBBC0C8000084F0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E842591B1DBBC0C8000084F0 /* UIKit.framework */; };
-		E842591E1DBBC2A2000084F0 /* LocationFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842591D1DBBC2A2000084F0 /* LocationFinderViewController.swift */; };
 		E8541EDB1D4D613D00A4CC93 /* WeatherDataArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8541EDA1D4D613D00A4CC93 /* WeatherDataArrays.swift */; };
+		E85F7B911DBBCD11007A5C55 /* LocationFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85F7B901DBBCD11007A5C55 /* LocationFinderViewController.swift */; };
 		E868D2031D45045D0093E4C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E868D2021D45045D0093E4C0 /* AppDelegate.swift */; };
 		E868D2051D45045D0093E4C0 /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E868D2041D45045D0093E4C0 /* TempViewController.swift */; };
 		E868D2081D45045D0093E4C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E868D2061D45045D0093E4C0 /* Main.storyboard */; };
@@ -213,8 +213,8 @@
 		E84259171DBBC0B3000084F0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E84259191DBBC0BD000084F0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E842591B1DBBC0C8000084F0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		E842591D1DBBC2A2000084F0 /* LocationFinderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationFinderViewController.swift; sourceTree = "<group>"; };
 		E8541EDA1D4D613D00A4CC93 /* WeatherDataArrays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDataArrays.swift; sourceTree = "<group>"; };
+		E85F7B901DBBCD11007A5C55 /* LocationFinderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationFinderViewController.swift; sourceTree = "<group>"; };
 		E868D1FF1D45045D0093E4C0 /* NOAA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NOAA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E868D2021D45045D0093E4C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E868D2041D45045D0093E4C0 /* TempViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
@@ -315,12 +315,12 @@
 		E868D2011D45045D0093E4C0 /* NOAA */ = {
 			isa = PBXGroup;
 			children = (
+				E85F7B901DBBCD11007A5C55 /* LocationFinderViewController.swift */,
 				E868D2021D45045D0093E4C0 /* AppDelegate.swift */,
 				E868D2061D45045D0093E4C0 /* Main.storyboard */,
 				E81D853A1D56546600187B94 /* PrecipViewController.swift */,
 				E868D2041D45045D0093E4C0 /* TempViewController.swift */,
 				E8842C8C1DB3C55800C5A4A4 /* SettingsViewController.swift */,
-				E842591D1DBBC2A2000084F0 /* LocationFinderViewController.swift */,
 				E895960B1D89E210001F7DA6 /* FetchAllData.swift */,
 				E816D4A11D5409C0005DA4D9 /* UpdateView.swift */,
 				E805D8F31D735BEF00E58FCA /* ArrayCalculations.swift */,
@@ -559,6 +559,7 @@
 				E8D80AB51D46DF9600C18ACD /* NOAARequests.swift in Sources */,
 				E868D20B1D45045D0093E4C0 /* NOAA.xcdatamodeld in Sources */,
 				E800E9C81D48290900F3F8EC /* DateHandler.swift in Sources */,
+				E85F7B911DBBCD11007A5C55 /* LocationFinderViewController.swift in Sources */,
 				E868D2051D45045D0093E4C0 /* TempViewController.swift in Sources */,
 				E8842C9C1DB3C9C900C5A4A4 /* SettingsDataArrays.swift in Sources */,
 				E805D8F41D735BEF00E58FCA /* ArrayCalculations.swift in Sources */,
@@ -572,7 +573,6 @@
 				E816D4A21D5409C0005DA4D9 /* UpdateView.swift in Sources */,
 				E868D2031D45045D0093E4C0 /* AppDelegate.swift in Sources */,
 				E8541EDB1D4D613D00A4CC93 /* WeatherDataArrays.swift in Sources */,
-				E842591E1DBBC2A2000084F0 /* LocationFinderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

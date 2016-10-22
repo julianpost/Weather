@@ -19,7 +19,7 @@ class CallForLocations {
         
         
         
-        let googleAPIKey = "AIzaSyA3Flb3HdA0EjlxVoxnEMUesGSBKhM6r_s"
+        //let googleAPIKey = "AIzaSyA3Flb3HdA0EjlxVoxnEMUesGSBKhM6r_s"
         var dict: [[String:AnyObject]] = [[:]]
         var array: [String] = []
         
@@ -44,7 +44,7 @@ class CallForLocations {
         ]
         
         
-        Alamofire.request("https://www.googleapis.com/geolocation/v1/geolocate?key=\(googleAPIKey)", headers: headers)
+        Alamofire.request("https://www.googleapis.com/geolocation/v1/geolocate?key=", headers: headers)
             .validate(statusCode: 200..<300).responseJSON { (responseData) -> Void in
                 debugPrint(responseData)
                 switch responseData.result {
